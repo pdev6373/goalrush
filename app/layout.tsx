@@ -1,7 +1,8 @@
-import { Header } from "@/components";
+import { Header, Wrapper } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import styles from "./layout.module.css";
 
 const segoeui = localFont({
   src: [
@@ -37,8 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={segoeui.className}>
-        <Header />
-        {children}
+        <Wrapper noBackground gap={20}>
+          <>
+            <Header />
+            <div className={styles.children}>{children}</div>
+          </>
+        </Wrapper>
       </body>
     </html>
   );

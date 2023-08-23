@@ -2,67 +2,67 @@ import { LeagueType } from "@/types";
 
 const Leagues: LeagueType[] = [
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },
   {
-    image: "",
+    logo: "/assets/league-logo.png",
     name: "Premier League",
     route: "/premier-league",
   },

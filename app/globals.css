@@ -1,7 +1,7 @@
 :root {
   /* TEXT COLORS */
-  --secondary-color: #3c3b37;
   --alert-color: #e1233d;
+  --alert-color-300: #e1233d1a;
 
   /* BORDER */
   --main-border: 1px solid #ececec;
@@ -14,13 +14,18 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* BACKGROUND COLORS */
-    --main-background-color: #1c2228;
-    --main-background-color-300: #2c343a;
+    --main-background-500: #222a30;
+    --main-background: #1c2228;
+    --main-background-300: #2c343a;
+
+    --secondary-background: #ffe000;
 
     /* TEXT COLORS */
     --main-color: #ffffff;
     --main-color-300: #616a76;
     --active-color: #0359fa;
+
+    --secondary-color: #3c3b37;
 
     /* BORDER */
     --main-border: 1px solid #3e4954;
@@ -39,7 +44,7 @@ body {
 }
 
 body {
-  background: var(--main-background-color);
+  background: var(--main-background);
   color: var(--main-color);
 }
 
