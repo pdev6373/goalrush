@@ -4,3 +4,6 @@ export { default as Header } from "./header";
 export { default as Wrapper } from "./wrapper";
 export { default as Leagues } from "./leagues";
 export { default as LiveScores } from "./liveScores";
+export { default as NewsPreview } from "./newsPreview";
+export { default as SectionHeading } from "./sectionHeading";
+export { default as Calendar } from "./calendar";

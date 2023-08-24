@@ -14,7 +14,7 @@ export default function Nav() {
     <nav className={styles.wrapper}>
       <ul className={styles.navList}>
         {NavItems.map((nav) => (
-          <li className={styles.navItem}>
+          <li className={styles.navItem} key={nav.name}>
             <Link
               href={nav.route}
               className={[

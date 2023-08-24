@@ -16,7 +16,6 @@
   .navItem {
     display: flex;
     justify-content: center;
-    align-items: center;
     position: relative;
   }
 
@@ -26,6 +25,8 @@
     font-weight: 600;
     line-height: 1.33;
     transition: color 0.3s ease-in;
+    display: grid;
+    place-content: center;
   }
 
   .linkCurrent {

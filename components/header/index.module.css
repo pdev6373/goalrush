@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 16px 24px;
+  padding: 16px 20px;
   background: var(--main-background-300);
   position: sticky;
   top: 0;
@@ -13,9 +13,20 @@
   display: none;
 }
 
+.hamburger {
+  display: grid;
+  place-content: center;
+}
+
+@media (min-width: 350px) {
+  .wrapper {
+    padding-inline: 24px;
+  }
+}
+
 @media (min-width: 500px) {
   .wrapper {
-    padding: 20px 40px;
+    padding: 20px 30px;
   }
 }
 
@@ -28,5 +39,9 @@
 
   .hamburger {
     display: none;
+  }
+
+  .wrapper {
+    padding-inline: 40px;
   }
 }

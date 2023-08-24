@@ -2,18 +2,43 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
+}
+
+.leaguesWrapper {
+  /* flex: 25.85; */
+  /* width: min(25.85%, 336px); */
+  flex: 1;
+  min-width: 100%;
 }
 
 .aside {
-  flex-grow: 1;
+  /* flex: 28; */
 }
 
 .main {
-  flex-grow: 2;
+  /* flex: 46.15; */
+  /* width: 74%; */
+  /* width: min(74%, calc(100% - 500px)); */
+  /* flex: 1; */
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 @media (min-width: 500px) {
   .wrapper {
     gap: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .leaguesWrapper {
+    min-width: 275px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .leaguesWrapper {
+    min-width: 336px;
   }
 }

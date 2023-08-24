@@ -62,6 +62,61 @@ li {
   list-style: none;
 }
 
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: var(--main-border);
+}
+
+.react-calendar__navigation__label {
+  flex-grow: 0 !important;
+  background-color: var(--main-background-300);
+}
+
+.react-calendar__navigation__label__labelText,
+.react-calendar__navigation__label__labelText--from {
+  color: var(--main-color);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.react-calendar__viewContainer {
+  padding: 20px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  display: grid;
+  place-content: center;
+  color: var(--main-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.react-calendar__month-view__weekdays__weekday > abbr {
+  text-decoration: none;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth > abbr {
+  color: var(--main-color-300);
+}
+
+.react-calendar__tile--active {
+  background: var(--active-color) !important;
+  border-radius: var(--main-border-radius-300);
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

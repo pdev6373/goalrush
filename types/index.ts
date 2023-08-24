@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export type NavRouteType =
   | "/"
   | "/all-match"
@@ -17,7 +19,7 @@ export type LeagueType = {
   route: string;
 };
 
-type WrapperSpacingType = 0 | 8 | 10 | 14 | 20;
+type WrapperSpacingType = 0 | 8 | 10 | 12 | 14 | 20 | 30;
 
 export type WrapperType = {
   children: JSX.Element;
@@ -25,6 +27,7 @@ export type WrapperType = {
   paddingBlock?: WrapperSpacingType;
   gap?: WrapperSpacingType;
   noBackground?: boolean;
+  extraStyles?: CSSProperties | undefined;
 };
 
 type LiveScoreDetailsType = {
@@ -49,4 +52,15 @@ type LiveScoreTeamType = {
 export type LiveScoreType = {
   details: LiveScoreDetailsType;
   teams: LiveScoreTeamType[];
+};
+
+export type NewsType = {
+  image: string;
+  title: string;
+  body: string;
+  time: string;
+};
+
+export type SectionHeadingType = {
+  children: string;
 };
