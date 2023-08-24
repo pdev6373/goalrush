@@ -68,3 +68,5 @@ export type SectionHeadingType = {
 export type DropDownButtonType = {
   currentValue: string;
 };
+
+export type HomeTypes = "calendar" | "all-cup" | null;

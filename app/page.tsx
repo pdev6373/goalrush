@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   Calendar,
   Leagues,
@@ -7,8 +9,15 @@ import {
 } from "@/components";
 import styles from "./page.module.css";
 import DropDownButton from "@/components/dropDownButton";
+import { HomeTypes } from "@/types";
 
 export default function Home() {
+  const [currentDropDownToShow, setCurrentDropDownToShow] =
+    useState<HomeTypes>(null);
+
+  const calendarDropdownHandler = (current: HomeTypes) =>
+    setCurrentDropDownToShow((prev) => (prev === current ? null : current));
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.allLeagues}>
@@ -18,15 +27,31 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.dropDowns}>
           <div className={styles.dropDownWapper}>
-            <DropDownButton currentValue="All Cup" />
-            <div className={styles.dropDownContent}>
+            <div onClick={() => calendarDropdownHandler("all-cup")}>
+              <DropDownButton currentValue="All Cup" />
+            </div>
+            <div
+              className={[
+                styles.dropDownContent,
+                currentDropDownToShow === "all-cup" &&
+                  currentDropDownToShow &&
+                  styles.allCupDropDown,
+              ].join(" ")}
+            >
               <Leagues />
             </div>
           </div>
 
           <div className={styles.dropDownWapper}>
-            <DropDownButton currentValue="May, 29" />
-            <div className={styles.dropDownContent}>
+            <div onClick={() => calendarDropdownHandler("calendar")}>
+              <DropDownButton currentValue="May, 29" />
+            </div>
+            <div
+              className={[
+                styles.dropDownContent,
+                currentDropDownToShow === "calendar" && styles.calendarDropDown,
+              ].join(" ")}
+            >
               <Calendar />
             </div>
           </div>
