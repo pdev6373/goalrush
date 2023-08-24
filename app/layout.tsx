@@ -1,4 +1,4 @@
-import { Header, Wrapper } from "@/components";
+import { Header } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -38,12 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={segoeui.className}>
-        <Wrapper noBackground gap={20}>
-          <>
-            <Header />
-            <div className={styles.children}>{children}</div>
-          </>
-        </Wrapper>
+        <Header />
+        <div className={styles.children}>{children}</div>
       </body>
     </html>
   );

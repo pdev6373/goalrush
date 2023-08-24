@@ -23,22 +23,32 @@
 
 .dropDowns {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 15px;
   width: min(100%, 770px);
   margin-inline: auto;
+  flex-wrap: wrap;
 }
 
 .dropDownWapper {
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .dropDownContent {
   position: absolute;
   opacity: 0;
+
+  display: none;
 }
 
 @media (min-width: 330px) {
+  .dropDowns {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 375px) {
   .dropDowns {
     gap: 21px;
   }
