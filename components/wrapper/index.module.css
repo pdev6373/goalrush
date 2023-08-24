@@ -8,7 +8,7 @@
 
 .noBackground {
   background: inherit;
-  border: none;
+  outline: none;
   border-radius: 0;
 }
 
