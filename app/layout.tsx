@@ -41,6 +41,7 @@ export default function RootLayout({
         <div className={styles.header}>
           <Header />
         </div>
+
         <div className={styles.children}>{children}</div>
       </body>
     </html>
