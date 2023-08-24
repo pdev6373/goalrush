@@ -3,7 +3,7 @@
   padding-inline: 16px;
 }
 
-@media (min-width: 350px) {
+@media (min-width: 375px) {
   .children {
     padding-inline: 24px;
   }
