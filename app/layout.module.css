@@ -1,0 +1,21 @@
+.children {
+  padding-inline: 20px;
+}
+
+@media (min-width: 350px) {
+  .children {
+    padding-inline: 24px;
+  }
+}
+
+@media (min-width: 500px) {
+  .children {
+    padding-inline: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .children {
+    padding-inline: 40px;
+  }
+}

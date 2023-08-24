@@ -1,0 +1,25 @@
+.news {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  transition: background-color 0.15s ease-in;
+}
+
+.news:hover {
+  background-color: var(--main-background-500);
+  border-radius: var(--main-border-radius);
+}
+
+.newsHeading {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.newsTime {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--main-color-300);
+}

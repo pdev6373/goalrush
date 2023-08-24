@@ -1,0 +1,165 @@
+.leagueHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 10px;
+  background: var(--main-background-500);
+  border-radius: var(--main-border-radius-300);
+}
+
+.leagueHeaderText {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.matchTime {
+  background: var(--secondary-background);
+  border-radius: var(--main-border-radius-300);
+  padding: 3px 9px;
+  color: var(--secondary-color);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.live {
+  display: none;
+}
+
+.matchDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--main-border);
+  padding: 14px 10px;
+  gap: 15px;
+}
+
+.matchScores,
+.matchScoresMobile {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  padding-inline: 8.5939px;
+}
+
+.matchScores {
+  display: none;
+}
+
+.matchTeams {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.teamWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.teamName {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.teamLogoWeb {
+  display: none;
+}
+
+@media (min-width: 330px) {
+  .leagueHeader {
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 375px) {
+  .matchTeams {
+    gap: 4px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .matchScoresMobile {
+    display: none;
+  }
+
+  .matchScores {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) {
+  .leagueHeaderText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .leagueHeader {
+    padding-inline: 20px;
+  }
+
+  .matchTime {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 12px;
+  }
+
+  .matchDetails {
+    padding: 16px 20px;
+    gap: 20px;
+  }
+
+  .matchScores {
+    font-size: 14px;
+    line-height: 20px;
+    padding-inline: 9.7px;
+  }
+
+  .matchTeams {
+    gap: 6px;
+  }
+
+  .teamWrapper {
+    gap: 10px;
+  }
+
+  .teamName {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .teamLogoWeb {
+    display: block;
+  }
+
+  .teamLogoMobile {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .live {
+    display: block;
+    color: var(--alert-color);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 4px 8px;
+    border-radius: var(--main-border-radius-300);
+    background: var(--alert-color-300);
+  }
+
+  .matchTeams {
+    flex-grow: 0;
+  }
+}
