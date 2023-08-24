@@ -15,7 +15,6 @@
 
 .news:hover {
   background-color: var(--main-background-500);
-  border-radius: var(--main-border-radius);
 }
 
 .newsHeading {
@@ -47,6 +46,11 @@
 @media (min-width: 1000px) {
   .newsWrapper {
     padding: 10px 10px 20px 0;
+    /* check the padding */
+  }
+
+  .news:hover {
+    border-radius: var(--main-border-radius);
   }
 }
 
