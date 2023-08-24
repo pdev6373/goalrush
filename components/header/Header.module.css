@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 16px 20px;
+  padding: 16px;
   background: var(--main-background-300);
   position: sticky;
   top: 0;
@@ -18,7 +18,7 @@
   place-content: center;
 }
 
-@media (min-width: 350px) {
+@media (min-width: 375px) {
   .wrapper {
     padding-inline: 24px;
   }

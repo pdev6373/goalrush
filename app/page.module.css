@@ -5,24 +5,43 @@
   flex-wrap: wrap;
 }
 
-.leaguesWrapper {
-  /* flex: 25.85; */
-  /* width: min(25.85%, 336px); */
-  flex: 1;
-  min-width: 100%;
-}
-
-.aside {
-  /* flex: 28; */
-}
-
 .main {
-  /* flex: 46.15; */
-  /* width: 74%; */
-  /* width: min(74%, calc(100% - 500px)); */
-  /* flex: 1; */
-  flex-grow: 1;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main,
+.aside {
+  width: 100%;
+}
+
+.allLeagues,
+.calendar {
+  display: none;
+}
+
+.dropDowns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: min(100%, 770px);
+  margin-inline: auto;
+}
+
+.dropDownWapper {
+  flex: 1;
+}
+
+.dropDownContent {
+  position: absolute;
+  opacity: 0;
+}
+
+@media (min-width: 330px) {
+  .dropDowns {
+    gap: 21px;
+  }
 }
 
 @media (min-width: 500px) {
@@ -31,14 +50,36 @@
   }
 }
 
-@media (min-width: 900px) {
-  .leaguesWrapper {
-    min-width: 275px;
+@media (min-width: 1000px) {
+  .main {
+    flex: 1.75;
+  }
+
+  .aside {
+    flex: 1;
+    min-width: 310px;
   }
 }
 
-@media (min-width: 1050px) {
-  .leaguesWrapper {
-    min-width: 336px;
+@media (min-width: 1300px) {
+  .aside {
+    flex: 28;
+  }
+
+  .main {
+    flex: 46.15;
+  }
+
+  .allLeagues,
+  .calendar {
+    display: block;
+  }
+
+  .allLeagues {
+    flex: 25.85;
+  }
+
+  .dropDowns {
+    display: none;
   }
 }

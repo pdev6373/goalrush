@@ -64,3 +64,7 @@ export type NewsType = {
 export type SectionHeadingType = {
   children: string;
 };
+
+export type DropDownButtonType = {
+  currentValue: string;
+};

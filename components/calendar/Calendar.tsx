@@ -29,6 +29,8 @@ export default function Calendar() {
               background: "#2c343a",
               border: "none",
               outline: "none",
+              paddingInline: 10,
+              boxSizing: "content-box",
             }}
           />
         }
@@ -42,6 +44,8 @@ export default function Calendar() {
               background: "#2c343a",
               border: "none",
               outline: "none",
+              paddingInline: 10,
+              boxSizing: "content-box",
             }}
           />
         }

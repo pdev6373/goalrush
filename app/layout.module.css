@@ -1,5 +1,4 @@
 .children {
-  /* padding-inline: 20px; */
   padding-inline: 16px;
 }
 
@@ -15,7 +14,7 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .children {
     padding-inline: 40px;
   }
