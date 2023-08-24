@@ -1,0 +1,16 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tile {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 8px 5px;
+  cursor: pointer;
+}
