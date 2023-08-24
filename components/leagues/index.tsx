@@ -12,7 +12,12 @@ export default function Leagues() {
           <SectionHeading>All Cup</SectionHeading>
         </div>
 
-        <Wrapper noBackground padding={20} paddingBlock={0} gap={8}>
+        <Wrapper
+          noBackground
+          padding={20}
+          gap={8}
+          extraStyles={{ paddingBlock: "0 33px" }}
+        >
           <>
             {AllLeagues.map((league) => (
               <Wrapper noBackground padding={10} key={league.name}>
@@ -23,7 +28,7 @@ export default function Leagues() {
                     width={32}
                     height={32}
                   />
-                  <p>{league.name}</p>
+                  <p className={styles.leagueName}>{league.name}</p>
                 </Link>
               </Wrapper>
             ))}

@@ -8,9 +8,16 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 18px;
   padding: 8px 5px;
   cursor: pointer;
+}
+
+@media (min-width: 375px) {
+  .tile {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

@@ -8,5 +8,22 @@
 .league {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+}
+
+.leagueName {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@media (min-width: 375px) {
+  .leagueName {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .league {
+    gap: 15px;
+  }
 }

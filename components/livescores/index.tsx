@@ -31,6 +31,14 @@ export default function LiveScores() {
 
                     <div className={styles.matchTeams}>
                       <div className={styles.teamWrapper}>
+                        <p
+                          className={[
+                            styles.teamName,
+                            styles.homeTeamName,
+                          ].join(" ")}
+                        >
+                          {match.homeTeam.name}
+                        </p>
                         <Image
                           src={match.homeTeam.logo}
                           alt="home team logo"
@@ -45,8 +53,13 @@ export default function LiveScores() {
                           height={20}
                           className={styles.teamLogoMobile}
                         />
-                        <p className={styles.teamName}>{match.homeTeam.name}</p>
-                        <p className={styles.matchScoresMobile}>
+
+                        <p
+                          className={[
+                            styles.matchScoresMobile,
+                            styles.homeMatchScoresMobile,
+                          ].join(" ")}
+                        >
                           {match.homeTeam.score}
                         </p>
                       </div>

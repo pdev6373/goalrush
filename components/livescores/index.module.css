@@ -75,6 +75,14 @@
   line-height: 18px;
 }
 
+.homeTeamName {
+  order: 1;
+}
+
+.homeMatchScoresMobile {
+  order: 2;
+}
+
 .teamLogoWeb {
   display: none;
 }
@@ -108,6 +116,11 @@
 
   .matchScores {
     display: block;
+  }
+
+  .homeTeamName,
+  .homeMatchScoresMobile {
+    order: 0;
   }
 }
 

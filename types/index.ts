@@ -24,7 +24,6 @@ type WrapperSpacingType = 0 | 8 | 10 | 12 | 14 | 20 | 30;
 export type WrapperType = {
   children: JSX.Element;
   padding?: WrapperSpacingType;
-  paddingBlock?: WrapperSpacingType;
   gap?: WrapperSpacingType;
   noBackground?: boolean;
   extraStyles?: CSSProperties | undefined;

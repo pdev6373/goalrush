@@ -51,6 +51,7 @@
   display: block;
   opacity: 1;
   box-shadow: 0px 12px 24px 0px #00000038;
+  border: var(--main-border);
 }
 
 .allCupDropDown {
@@ -80,6 +81,15 @@
 @media (min-width: 500px) {
   .wrapper {
     gap: 30px;
+  }
+
+  .calendarDropDown {
+    width: min(100%, 364px);
+    left: auto;
+  }
+
+  .allCupDropDown {
+    width: min(100%, 336px);
   }
 }
 
