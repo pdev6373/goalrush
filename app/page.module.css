@@ -51,13 +51,12 @@
   display: block;
   opacity: 1;
   box-shadow: 0px 12px 24px 0px #00000038;
-  border: var(--main-border);
+  border-radius: var(--main-border-radius);
 }
 
 .allCupDropDown {
   max-height: 70vh;
   overflow-y: auto;
-  border-radius: var(--main-border-radius);
 }
 
 @media (min-width: 330px) {
