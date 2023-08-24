@@ -8,7 +8,9 @@ export default function Leagues() {
   return (
     <Wrapper gap={10}>
       <>
-        <SectionHeading>All Cup</SectionHeading>
+        <div className={styles.heading}>
+          <SectionHeading>All Cup</SectionHeading>
+        </div>
 
         <Wrapper noBackground padding={20} paddingBlock={0} gap={8}>
           <>

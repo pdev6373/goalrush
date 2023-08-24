@@ -95,6 +95,10 @@ button {
   padding: 20px;
 }
 
+.react-calendar__month-view__weekdays {
+  margin-bottom: 10px;
+}
+
 .react-calendar__month-view__weekdays__weekday {
   display: grid;
   place-content: center;
@@ -102,19 +106,34 @@ button {
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+  min-height: 36px;
 }
 
 .react-calendar__month-view__weekdays__weekday > abbr {
   text-decoration: none;
 }
 
+.react-calendar__month-view__days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+  row-gap: 10px;
+}
+
 .react-calendar__month-view__days__day--neighboringMonth > abbr {
   color: var(--main-color-300);
 }
 
-.react-calendar__tile--active {
-  background: var(--active-color) !important;
+.react-calendar__tile {
+  transition: background-color 0.15s ease-in;
   border-radius: var(--main-border-radius-300);
+}
+
+.react-calendar__tile:hover {
+  background-color: var(--main-background-500);
+}
+
+.react-calendar__tile--active {
+  background-color: var(--active-color) !important;
 }
 
 @media (prefers-color-scheme: dark) {
