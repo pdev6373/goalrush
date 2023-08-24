@@ -20,17 +20,19 @@ export default function Leagues() {
         >
           <>
             {AllLeagues.map((league) => (
-              <Wrapper noBackground padding={10} key={league.name}>
-                <Link href={league.route} className={styles.league}>
-                  <Image
-                    src={league.logo}
-                    alt="league image"
-                    width={32}
-                    height={32}
-                  />
-                  <p className={styles.leagueName}>{league.name}</p>
-                </Link>
-              </Wrapper>
+              <Link
+                href={league.route}
+                className={styles.league}
+                key={league.name}
+              >
+                <Image
+                  src={league.logo}
+                  alt="league image"
+                  width={32}
+                  height={32}
+                />
+                <p className={styles.leagueName}>{league.name}</p>
+              </Link>
             ))}
           </>
         </Wrapper>

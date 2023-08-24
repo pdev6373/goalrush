@@ -2,6 +2,7 @@ import { Wrapper } from "..";
 import { LiveScores as AllLiveScores } from "@/constants";
 import styles from "./index.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function LiveScores() {
   return (
@@ -19,7 +20,8 @@ export default function LiveScores() {
 
               <div>
                 {league.teams.map((match) => (
-                  <div
+                  <Link
+                    href=""
                     className={styles.matchDetails}
                     key={match.homeTeam.name}
                   >
@@ -91,7 +93,7 @@ export default function LiveScores() {
                     </div>
 
                     <p className={styles.matchTime}>{match.time}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </>

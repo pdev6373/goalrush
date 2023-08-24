@@ -41,12 +41,12 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
   background: var(--main-background);
   color: var(--main-color);
+  overflow-x: hidden;
 }
 
 a {
@@ -140,6 +140,10 @@ button {
 
 .react-calendar__tile--active {
   background-color: var(--active-color) !important;
+}
+
+.react-calendar__navigation__label {
+  pointer-events: none;
 }
 
 @media (min-width: 375px) {

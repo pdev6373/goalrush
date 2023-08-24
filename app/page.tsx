@@ -6,16 +6,16 @@ import {
   LiveScores,
   NewsPreview,
   Wrapper,
+  DropDownButton,
 } from "@/components";
 import styles from "./page.module.css";
-import DropDownButton from "@/components/dropDownButton";
 import { HomeTypes } from "@/types";
 
-export default function Home() {
+export default function Livescores() {
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
 
-  const calendarDropdownHandler = (current: HomeTypes) =>
+  const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
 
   return (
@@ -27,7 +27,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.dropDowns}>
           <div className={styles.dropDownWapper}>
-            <div onClick={() => calendarDropdownHandler("all-cup")}>
+            <div onClick={() => dropdownHandler("all-cup")}>
               <DropDownButton currentValue="All Cup" />
             </div>
             <div
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           <div className={styles.dropDownWapper}>
-            <div onClick={() => calendarDropdownHandler("calendar")}>
+            <div onClick={() => dropdownHandler("calendar")}>
               <DropDownButton currentValue="May, 29" />
             </div>
             <div

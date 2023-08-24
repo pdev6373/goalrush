@@ -1,4 +1,81 @@
 .wrapper {
   display: flex;
+  justify-content: center;
   align-items: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.calendar {
+  display: none;
+}
+
+.dropDownWapper {
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: min(385px, 100%);
+  margin-inline: auto;
+  position: relative;
+}
+
+.dropDownContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 15px);
+  display: none;
+}
+
+.calendarDropDown {
+  display: block;
+  box-shadow: 0px 12px 24px 0px #00000038;
+  border-radius: var(--main-border-radius);
+}
+
+.liveScores {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 15px;
+}
+
+@media (min-width: 375px) {
+  .wrapper,
+  .liveScores {
+    gap: 20px;
+  }
+
+  .dropDownContent {
+    top: calc(100% + 20px);
+  }
+}
+
+@media (min-width: 500px) {
+  .calendarDropDown {
+    width: max(364px, 100%);
+    left: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .calendar {
+    display: block;
+    flex: 1;
+    max-width: 364px;
+  }
+
+  .dropDownWapper {
+    display: none;
+  }
+
+  .liveScores {
+    flex: 1.75;
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .wrapper {
+    gap: 30px;
+  }
 }

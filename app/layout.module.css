@@ -2,6 +2,12 @@
   padding: 15px 10px;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 @media (min-width: 375px) {
   .children {
     padding: 20px 24px;

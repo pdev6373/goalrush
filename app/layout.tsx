@@ -38,7 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={segoeui.className}>
-        <Header />
+        <div className={styles.header}>
+          <Header />
+        </div>
         <div className={styles.children}>{children}</div>
       </body>
     </html>
