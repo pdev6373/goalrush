@@ -49,6 +49,11 @@
   display: block;
   box-shadow: 0px 12px 24px 0px #00000038;
   border-radius: var(--main-border-radius);
+  width: min(calc(385px - 10px), 100%);
+}
+
+.calendarDropDown {
+  left: auto;
 }
 
 .allCupDropDown {
@@ -71,17 +76,6 @@
 
   .dropDownContent {
     top: calc(100% + 20px);
-  }
-}
-
-@media (min-width: 500px) {
-  .calendarDropDown {
-    width: max(364px, calc(50% - 10px));
-    left: auto;
-  }
-
-  .allCupDropDown {
-    width: max(calc(50% - 10px), 336px);
   }
 }
 
