@@ -33,9 +33,7 @@ export default function Livescores() {
             <div
               className={[
                 styles.dropDownContent,
-                currentDropDownToShow === "all-cup" &&
-                  currentDropDownToShow &&
-                  styles.allCupDropDown,
+                currentDropDownToShow === "all-cup" && styles.allCupDropDown,
               ].join(" ")}
             >
               <Leagues />
