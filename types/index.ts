@@ -1,4 +1,8 @@
-import { CSSProperties } from "react";
+import { ReactNode, CSSProperties } from "react";
+
+export type LayoutType = {
+  children: ReactNode;
+};
 
 export type NavRouteType =
   | "/"
@@ -19,7 +23,7 @@ export type LeagueType = {
   route: string;
 };
 
-type WrapperSpacingType = 0 | 8 | 10 | 12 | 14 | 20 | 30;
+type WrapperSpacingType = 0 | 8 | 10 | 12 | 20 | 30;
 
 export type WrapperType = {
   children: JSX.Element;
@@ -69,3 +73,30 @@ export type DropDownButtonType = {
 };
 
 export type HomeTypes = "calendar" | "all-cup" | null;
+
+export type VideosType = {
+  thumbnail: string;
+  date: string;
+  title: string;
+};
+
+export type VideoType = {
+  thumbnail: string;
+  date: string;
+  title: string;
+  route: string;
+};
+
+export type TextType = {
+  children: string;
+  type: "heading" | "body";
+  size: 12 | 14 | 16 | 18;
+  weight: "300" | "400" | "600" | "700";
+  variation:
+    | "main"
+    | "main-300"
+    | "secondary"
+    | "alert"
+    | "alert-300"
+    | "active";
+};

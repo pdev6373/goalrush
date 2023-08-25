@@ -17,19 +17,6 @@
   background-color: var(--main-background-500);
 }
 
-.newsHeading {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-}
-
-.newsTime {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 16px;
-  color: var(--main-color-300);
-}
-
 @media (min-width: 240px) {
   .news {
     padding-inline: 20px;

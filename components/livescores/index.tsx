@@ -1,4 +1,4 @@
-import { Wrapper } from "..";
+import { Text, Wrapper } from "..";
 import { LiveScores as AllLiveScores } from "@/constants";
 import styles from "./index.module.css";
 import Image from "next/image";
@@ -12,10 +12,13 @@ export default function LiveScores() {
           <Wrapper noBackground gap={10} key={league.details.league}>
             <>
               <div className={styles.leagueHeader}>
-                <p className={styles.leagueHeaderText}>
+                <Text size={14} type="body" variation="main" weight="700">
                   {league.details.league}
-                </p>
-                <p className={styles.leagueHeaderText}>{league.details.time}</p>
+                </Text>
+
+                <Text size={14} type="body" variation="main" weight="700">
+                  {league.details.time}
+                </Text>
               </div>
 
               <div>
@@ -26,21 +29,40 @@ export default function LiveScores() {
                     key={match.homeTeam.name}
                   >
                     {match.isLive ? (
-                      <p className={styles.live}>• Live</p>
+                      <div className={styles.live}>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="alert"
+                          weight="600"
+                        >
+                          • Live
+                        </Text>
+                      </div>
                     ) : (
-                      <p>FT</p>
+                      <div className={styles.fulltime}>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="main"
+                          weight="600"
+                        >
+                          FT
+                        </Text>
+                      </div>
                     )}
 
                     <div className={styles.matchTeams}>
                       <div className={styles.teamWrapper}>
-                        <p
-                          className={[
-                            styles.teamName,
-                            styles.homeTeamName,
-                          ].join(" ")}
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="main"
+                          weight="600"
                         >
                           {match.homeTeam.name}
-                        </p>
+                        </Text>
+
                         <Image
                           src={match.homeTeam.logo}
                           alt="home team logo"
@@ -56,12 +78,7 @@ export default function LiveScores() {
                           className={styles.teamLogoMobile}
                         />
 
-                        <p
-                          className={[
-                            styles.matchScoresMobile,
-                            styles.homeMatchScoresMobile,
-                          ].join(" ")}
-                        >
+                        <p className={styles.matchScoresMobile}>
                           {match.homeTeam.score}
                         </p>
                       </div>
@@ -85,14 +102,33 @@ export default function LiveScores() {
                           height={20}
                           className={styles.teamLogoMobile}
                         />
-                        <p className={styles.teamName}>{match.awayTeam.name}</p>
+
+                        <div>
+                          <Text
+                            size={14}
+                            type="body"
+                            variation="main"
+                            weight="600"
+                          >
+                            {match.awayTeam.name}
+                          </Text>
+                        </div>
                         <p className={styles.matchScoresMobile}>
                           {match.awayTeam.score}
                         </p>
                       </div>
                     </div>
 
-                    <p className={styles.matchTime}>{match.time}</p>
+                    <div className={styles.matchTime}>
+                      <Text
+                        size={14}
+                        type="body"
+                        variation="secondary"
+                        weight="600"
+                      >
+                        {match.time}
+                      </Text>
+                    </div>
                   </Link>
                 ))}
               </div>

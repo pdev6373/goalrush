@@ -31,7 +31,7 @@ const LiveScores: LiveScoreType[] = [
     },
     teams: [
       {
-        isLive: true,
+        isLive: false,
         winningTeam: "home",
         time: "33:37",
         awayTeam: {

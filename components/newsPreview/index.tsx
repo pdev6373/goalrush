@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SectionHeading, Wrapper } from "..";
+import { SectionHeading, Text, Wrapper } from "..";
 import { News } from "@/constants";
 import styles from "./index.module.css";
 
@@ -15,8 +15,13 @@ export default function NewsPreview() {
 
               <Wrapper noBackground gap={12}>
                 <>
-                  <h2 className={styles.newsHeading}>{news.title}</h2>
-                  <p className={styles.newsTime}>{news.time}</p>
+                  <Text size={14} type="body" variation="main" weight="600">
+                    {news.title}
+                  </Text>
+
+                  <Text size={12} type="body" variation="main-300" weight="600">
+                    {news.time}
+                  </Text>
                 </>
               </Wrapper>
             </div>

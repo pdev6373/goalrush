@@ -17,6 +17,7 @@
     --main-background-500: #222a30;
     --main-background: #1c2228;
     --main-background-300: #2c343a;
+    --main-background-200: #3e4954;
 
     --secondary-background: #ffe000;
 
@@ -28,7 +29,7 @@
     --secondary-color: #3c3b37;
 
     /* BORDER */
-    --main-border: 1px solid #3e4954;
+    --main-border: 1px solid var(--main-background-200);
   }
 }
 

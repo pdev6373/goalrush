@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SectionHeading, Wrapper } from "..";
+import { SectionHeading, Text, Wrapper } from "..";
 import { Leagues as AllLeagues } from "@/constants";
 import Link from "next/link";
 import styles from "./index.module.css";
@@ -31,7 +31,10 @@ export default function Leagues() {
                   width={32}
                   height={32}
                 />
-                <p className={styles.leagueName}>{league.name}</p>
+
+                <Text size={14} type="body" variation="main" weight="700">
+                  {league.name}
+                </Text>
               </Link>
             ))}
           </>
