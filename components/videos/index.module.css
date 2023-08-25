@@ -10,9 +10,3 @@
   object-fit: cover;
   object-position: top left;
 }
-
-@media (min-width: 1000px) {
-  .imageWrapper {
-    max-width: 334px;
-  }
-}

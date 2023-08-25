@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 export default function Videos({ thumbnail, date, title, route }: VideoType) {
   return (
     <Link href={route}>
-      <Wrapper noBackground gap={10}>
+      <Wrapper noBackground gapStatic={10}>
         <>
           <div className={styles.imageWrapper}>
             <Image
@@ -18,12 +18,22 @@ export default function Videos({ thumbnail, date, title, route }: VideoType) {
             />
           </div>
 
-          <Wrapper noBackground gap={8}>
+          <Wrapper noBackground gapStatic={8}>
             <>
-              <Text size={14} type="body" variation="main-300" weight="600">
+              <Text
+                sizeStatic={14}
+                type="body"
+                variation="main-300"
+                weight="600"
+              >
                 {date}
               </Text>
-              <Text size={18} type="heading" variation="main" weight="600">
+              <Text
+                sizeStatic={18}
+                type="heading"
+                variation="main"
+                weight="600"
+              >
                 {title}
               </Text>
             </>
