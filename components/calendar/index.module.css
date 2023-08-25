@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 300px) {
   .tile {
     font-size: 14px;
     line-height: 20px;

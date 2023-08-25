@@ -1,32 +1,54 @@
-.size18 {
-  font-size: 16px;
-  line-height: 22px;
-}
-
-.size16 {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.size14 {
-  font-size: 12px;
-  line-height: 18px;
-}
-
+.sizeStatic12,
 .size12 {
   font-size: 10px;
   line-height: 16px;
 }
 
-@media (min-width: 500px) {
-  .size18 {
+.sizeStatic14,
+.size14 {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.sizeStatic16,
+.size16 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sizeStatic18,
+.size18 {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* @media (min-width: 300px) { */
+@media (min-width: 0px) {
+  .sizeStatic12 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .sizeStatic14 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .sizeStatic16 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .sizeStatic18 {
     font-size: 18px;
     line-height: 24px;
   }
+}
 
-  .size16 {
-    font-size: 16px;
-    line-height: 22px;
+@media (min-width: 500px) {
+  .size12 {
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .size14 {
@@ -34,9 +56,14 @@
     line-height: 20px;
   }
 
-  .size12 {
-    font-size: 12px;
-    line-height: 18px;
+  .size16 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .size18 {
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 

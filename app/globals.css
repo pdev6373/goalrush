@@ -7,6 +7,7 @@
   --main-border: 1px solid #ececec;
 
   /* RADIUS */
+  --main-border-radius-500: 10px;
   --main-border-radius: 6px;
   --main-border-radius-300: 4px;
 }
@@ -147,7 +148,7 @@ button {
   pointer-events: none;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 300px) {
   .react-calendar__month-view__weekdays {
     margin-bottom: 10px;
   }

@@ -28,7 +28,9 @@ type WrapperSpacingType = 0 | 8 | 10 | 12 | 20 | 30;
 export type WrapperType = {
   children: JSX.Element;
   padding?: WrapperSpacingType;
+  paddingStatic?: WrapperSpacingType;
   gap?: WrapperSpacingType;
+  gapStatic?: WrapperSpacingType;
   noBackground?: boolean;
   extraStyles?: CSSProperties | undefined;
 };
@@ -90,7 +92,8 @@ export type VideoType = {
 export type TextType = {
   children: string;
   type: "heading" | "body";
-  size: 12 | 14 | 16 | 18;
+  size?: 12 | 14 | 16 | 18;
+  sizeStatic?: 12 | 14 | 16 | 18;
   weight: "300" | "400" | "600" | "700";
   variation:
     | "main"

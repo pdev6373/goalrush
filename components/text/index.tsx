@@ -5,6 +5,7 @@ export default function Text({
   children,
   type,
   size,
+  sizeStatic,
   weight,
   variation,
 }: TextType) {
@@ -13,6 +14,11 @@ export default function Text({
     size === 14 && styles.size14,
     size === 16 && styles.size16,
     size === 18 && styles.size18,
+
+    sizeStatic === 12 && styles.sizeStatic12,
+    sizeStatic === 14 && styles.sizeStatic14,
+    sizeStatic === 16 && styles.sizeStatic16,
+    sizeStatic === 18 && styles.sizeStatic18,
 
     weight === "300" && styles.weight300,
     weight === "400" && styles.weight400,

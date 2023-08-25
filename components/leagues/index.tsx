@@ -32,7 +32,7 @@ export default function Leagues() {
                   height={32}
                 />
 
-                <Text size={14} type="body" variation="main" weight="700">
+                <Text sizeStatic={14} type="body" variation="main" weight="700">
                   {league.name}
                 </Text>
               </Link>
