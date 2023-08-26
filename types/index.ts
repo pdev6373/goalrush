@@ -96,7 +96,7 @@ export type VideoType = {
   route: string;
 };
 
-type TextDimensionType = 12 | 14 | 16 | 18 | 22;
+type TextDimensionType = 12 | 14 | 16 | 18 | 20 | 22;
 export type TextType = {
   children: string;
   type: "heading" | "body";
@@ -109,6 +109,7 @@ export type TextType = {
     | "secondary"
     | "alert"
     | "alert-300"
+    | "alert-200"
     | "active";
 };
 

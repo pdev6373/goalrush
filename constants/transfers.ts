@@ -5,189 +5,297 @@ const Transfer: TransferType[] = [
     category: "Latest Transfers",
     body: [
       {
-        image: "",
+        image: "/assets/player.png",
         age: 21,
         name: "Neco Williams",
         position: "Defender",
         reason: "End of Loan",
         nationality: {
           country: "UAE",
-          logo: "",
+          logo: "/assets/country-logo.png",
         },
         previousClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Fullham ",
         },
         currentClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
           name: "Liverpool",
         },
       },
     ],
   },
   {
-    category: "Latest Transfers",
+    category: "Top Transfers",
     body: [
       {
-        image: "",
+        image: "/assets/player.png",
         age: 21,
         name: "Neco Williams",
         position: "Defender",
         reason: "End of Loan",
         nationality: {
           country: "UAE",
-          logo: "",
+          logo: "/assets/country-logo.png",
         },
         previousClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Fullham ",
         },
         currentClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
+          name: "Liverpool",
+        },
+      },
+      {
+        image: "/assets/player.png",
+        age: 21,
+        name: "Neco Williams",
+        position: "Defender",
+        reason: "End of Loan",
+        nationality: {
+          country: "UAE",
+          logo: "/assets/country-logo.png",
+        },
+        previousClub: {
+          logo: "/assets/club-logo.png",
+          name: "Fullham ",
+        },
+        currentClub: {
+          logo: "/assets/club-logo.png",
           name: "Liverpool",
         },
       },
     ],
   },
   {
-    category: "Latest Transfers",
+    category: "Rumours",
     body: [
       {
-        image: "",
+        image: "/assets/player.png",
         age: 21,
         name: "Neco Williams",
         position: "Defender",
         reason: "End of Loan",
         nationality: {
           country: "UAE",
-          logo: "",
+          logo: "/assets/country-logo.png",
         },
         previousClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Fullham ",
         },
         currentClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Liverpool",
         },
       },
-    ],
-  },
-  {
-    category: "Latest Transfers",
-    body: [
       {
-        image: "",
+        image: "/assets/player.png",
         age: 21,
         name: "Neco Williams",
         position: "Defender",
         reason: "End of Loan",
         nationality: {
           country: "UAE",
-          logo: "",
+          logo: "/assets/country-logo.png",
         },
         previousClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Fullham ",
         },
         currentClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Liverpool",
         },
       },
-    ],
-  },
-  {
-    category: "Latest Transfers",
-    body: [
       {
-        image: "",
+        image: "/assets/player.png",
         age: 21,
         name: "Neco Williams",
         position: "Defender",
         reason: "End of Loan",
         nationality: {
           country: "UAE",
-          logo: "",
+          logo: "/assets/country-logo.png",
         },
         previousClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Fullham ",
         },
         currentClub: {
-          logo: "",
-          name: "Liverpool",
-        },
-      },
-    ],
-  },
-  {
-    category: "Latest Transfers",
-    body: [
-      {
-        image: "",
-        age: 21,
-        name: "Neco Williams",
-        position: "Defender",
-        reason: "End of Loan",
-        nationality: {
-          country: "UAE",
-          logo: "",
-        },
-        previousClub: {
-          logo: "",
-          name: "Fullham ",
-        },
-        currentClub: {
-          logo: "",
-          name: "Liverpool",
-        },
-      },
-    ],
-  },
-  {
-    category: "Latest Transfers",
-    body: [
-      {
-        image: "",
-        age: 21,
-        name: "Neco Williams",
-        position: "Defender",
-        reason: "End of Loan",
-        nationality: {
-          country: "UAE",
-          logo: "",
-        },
-        previousClub: {
-          logo: "",
-          name: "Fullham ",
-        },
-        currentClub: {
-          logo: "",
-          name: "Liverpool",
-        },
-      },
-    ],
-  },
-  {
-    category: "Latest Transfers",
-    body: [
-      {
-        image: "",
-        age: 21,
-        name: "Neco Williams",
-        position: "Defender",
-        reason: "End of Loan",
-        nationality: {
-          country: "UAE",
-          logo: "",
-        },
-        previousClub: {
-          logo: "",
-          name: "Fullham ",
-        },
-        currentClub: {
-          logo: "",
+          logo: "/assets/club-logo.png",
           name: "Liverpool",
         },
       },

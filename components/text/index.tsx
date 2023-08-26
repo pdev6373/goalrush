@@ -14,12 +14,14 @@ export default function Text({
     size === 14 && styles.size14,
     size === 16 && styles.size16,
     size === 18 && styles.size18,
+    size === 20 && styles.size20,
     size === 22 && styles.size22,
 
     sizeStatic === 12 && styles.sizeStatic12,
     sizeStatic === 14 && styles.sizeStatic14,
     sizeStatic === 16 && styles.sizeStatic16,
     sizeStatic === 18 && styles.sizeStatic18,
+    sizeStatic === 20 && styles.sizeStatic20,
     sizeStatic === 22 && styles.sizeStatic22,
 
     weight === "300" && styles.weight300,
@@ -30,6 +32,7 @@ export default function Text({
     variation === "active" && styles.active,
     variation === "alert" && styles.alert,
     variation === "alert-300" && styles.alert300,
+    variation === "alert-200" && styles.alert200,
     variation === "main" && styles.main,
     variation === "main-300" && styles.main300,
     variation === "secondary" && styles.secondary,
