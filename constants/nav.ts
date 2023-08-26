@@ -15,7 +15,16 @@ const Nav: NavType[] = [
   },
   {
     name: "News",
-    route: "/news",
+    routes: [
+      {
+        name: "Latest News",
+        route: "/latest-news",
+      },
+      {
+        name: "Transfers",
+        route: "/transfers",
+      },
+    ],
   },
   {
     name: "Stats",

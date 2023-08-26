@@ -7,6 +7,7 @@
   --main-border: 1px solid #ececec;
 
   /* RADIUS */
+  --main-border-radius-600: 12px;
   --main-border-radius-500: 10px;
   --main-border-radius: 6px;
   --main-border-radius-300: 4px;

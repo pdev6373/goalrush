@@ -4,17 +4,24 @@ export type LayoutType = {
   children: ReactNode;
 };
 
+export type NavRoutesType = {
+  name: "Latest News" | "Transfers";
+  route: "/latest-news" | "/transfers";
+};
+
 export type NavRouteType =
   | "/"
   | "/all-match"
   | "/video"
   | "/news"
   | "/stats"
-  | "/rankings";
+  | "/rankings"
+  | NavRoutesType[];
 
 export type NavType = {
   name: "Live Scores" | "All Match" | "Video" | "News" | "Stats" | "Rankings";
-  route: NavRouteType;
+  route?: NavRouteType;
+  routes?: NavRoutesType[];
 };
 
 export type LeagueType = {
@@ -89,11 +96,12 @@ export type VideoType = {
   route: string;
 };
 
+type TextDimensionType = 12 | 14 | 16 | 18 | 22;
 export type TextType = {
   children: string;
   type: "heading" | "body";
-  size?: 12 | 14 | 16 | 18;
-  sizeStatic?: 12 | 14 | 16 | 18;
+  size?: TextDimensionType;
+  sizeStatic?: TextDimensionType;
   weight: "300" | "400" | "600" | "700";
   variation:
     | "main"
