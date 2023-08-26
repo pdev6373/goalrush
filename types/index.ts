@@ -111,3 +111,28 @@ export type TextType = {
     | "alert-300"
     | "active";
 };
+
+type TeansferBodyClubType = {
+  logo: string;
+  name: string;
+};
+
+type TeansferBodyNationalityType = {
+  country: string;
+  logo: string;
+};
+
+type TransferBodyType = {
+  image: string;
+  name: string;
+  nationality: TeansferBodyNationalityType;
+  position: string;
+  age: number;
+  reason: string;
+  previousClub: TeansferBodyClubType;
+  currentClub: TeansferBodyClubType;
+};
+export type TransferType = {
+  category: string;
+  body: TransferBodyType[];
+};

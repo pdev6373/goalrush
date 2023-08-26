@@ -4,6 +4,7 @@
 
 .news {
   display: flex;
+  flex-direction: column;
   padding: 14px;
   gap: 10px;
   background: var(--main-background-500);
@@ -11,18 +12,21 @@
 }
 
 .wrapper {
-  /* margin-left: -24px; */
-  /* position: absolute; */
-  /* left: 0; */
-  /* background: red; */
-  margin-inline: -24px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  height: calc(100vh - 123px);
+  border-radius: var(--main-border-radius-500) var(--main-border-radius-500) 0 0;
+  background: var(--main-background-300);
 }
 
-/* .news {
-   padding: 20px;
-  gap: 18px;
-  border-radius: var(--main-border-radius-500);
-} */
+.wrapperInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .newsOdd {
   background: var(--main-background-300);
@@ -31,11 +35,13 @@
 .main {
   max-width: 1088px;
   margin-inline: auto;
+  margin-bottom: 20px;
 }
 
 .mainInner {
   border-radius: var(--main-border-radius-600);
   overflow: hidden;
+  padding-top: 10px;
 }
 
 .newsImageWrapper {
@@ -57,11 +63,46 @@
 }
 
 .headerWrapper {
-  padding: 4px 20px 24px;
+  position: fixed;
+  z-index: 10;
+  top: 78px;
+  left: 0;
+  right: 0;
+  background: var(--main-background-300);
+  border-bottom: var(--main-border);
+  padding: 16px 24px;
+  border-radius: var(--main-border-radius-500) var(--main-border-radius-500) 0 0;
 }
 
 .bodyWrapper {
   display: none;
+}
+
+@media (min-width: 300px) {
+  .news {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 375px) {
+  .wrapper {
+    height: calc(100vh - 128px);
+  }
+
+  .headerWrapper {
+    top: 83px;
+  }
+}
+
+@media (min-width: 380px) {
+  .newsImageWrapper {
+    width: 120px;
+  }
+
+  .title {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 @media (min-width: 500px) {
@@ -79,6 +120,30 @@
     position: relative;
     aspect-ratio: 2.566 / 1;
   }
+
+  .wrapper {
+    position: static;
+    overflow: initial;
+    background: transparent;
+    height: auto;
+  }
+
+  .headerWrapper {
+    position: static;
+    z-index: 0;
+    background: transparent;
+    border-bottom: none;
+    border-radius: 0;
+    padding: 4px 20px 24px;
+  }
+
+  .mainInner {
+    padding-top: 0;
+  }
+
+  .main {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 700px) {
@@ -94,6 +159,12 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .news {
+    padding: 20px;
+    gap: 18px;
+    border-radius: var(--main-border-radius-500);
+  }
 }
 
 @media (min-width: 900px) {
@@ -105,5 +176,11 @@
 
   .newsImageWrapper {
     width: 232px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .wrapperInner {
+    gap: 30px;
   }
 }
