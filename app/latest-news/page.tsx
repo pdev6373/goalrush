@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { Text, Wrapper } from "@/components";
 import { News } from "@/constants";
 
-export default function page() {
+export default function LatestNews() {
   return (
     <div className={styles.wrapper}>
       <Wrapper noBackground gap={30}>
@@ -33,6 +33,7 @@ export default function page() {
 
                   {News.map((news, index) => (
                     <div
+                      key={index}
                       className={[
                         styles.news,
                         index % 2 && styles.newsOdd,

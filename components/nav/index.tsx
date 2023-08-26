@@ -67,6 +67,7 @@ export default function Nav() {
                     <div className={styles.newsType}>
                       {nav.routes.map((nav) => (
                         <Link
+                          key={nav.name}
                           href={nav.route}
                           className={[
                             styles.newsLink,
