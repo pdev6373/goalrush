@@ -1,0 +1,140 @@
+.player {
+  background: var(--main-background-300);
+  border-radius: var(--main-border-radius-600);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  padding: 20px 26px;
+  overflow: hidden;
+}
+
+.playerNumber {
+  position: absolute;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  background: var(--main-background-500);
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.clubs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: min(303px, 100%);
+}
+
+.club {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.playerDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.reasonWrapper {
+  padding-top: 2px;
+}
+
+.webView,
+.mobileView {
+  display: none;
+}
+
+.smallMobileArrow {
+  transform: rotate(90deg);
+}
+
+@media (min-width: 330px) {
+  .mobileView {
+    display: block;
+  }
+
+  .smallMobile {
+    display: none;
+  }
+
+  .clubs {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .playerNumber {
+    width: 166px;
+    padding: 33px 42px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+@media (min-width: 500px) {
+  .player {
+    padding: 20px 40px 24px;
+  }
+
+  .reasonWrapper {
+    padding-top: 10px;
+  }
+
+  .playerNumber {
+    width: 184px;
+    padding: 34px 48px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .position {
+    gap: 6px;
+  }
+
+  .name {
+    gap: 14px;
+  }
+
+  .webView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .clubs {
+    width: min(336px, 100%);
+  }
+}

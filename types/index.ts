@@ -123,7 +123,7 @@ type TeansferBodyNationalityType = {
   logo: string;
 };
 
-type TransferBodyType = {
+export type TransferBodyType = {
   image: string;
   name: string;
   nationality: TeansferBodyNationalityType;
@@ -133,6 +133,12 @@ type TransferBodyType = {
   previousClub: TeansferBodyClubType;
   currentClub: TeansferBodyClubType;
 };
+
+export type PlayerCardType = {
+  id: number;
+  body: TransferBodyType;
+};
+
 export type TransferType = {
   id: string;
   category: string;
