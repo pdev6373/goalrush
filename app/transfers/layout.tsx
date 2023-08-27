@@ -33,7 +33,6 @@ export default function Transfersayout({ children }: LayoutType) {
             );
           })}
         </div>
-
         {children}
       </>
     </Wrapper>
