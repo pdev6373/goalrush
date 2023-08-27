@@ -1,9 +1,15 @@
 .wrapper {
   display: grid;
-  gap: 20px;
+  gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(min(275px, 100%), 1fr));
   max-width: 1062px;
   margin-inline: auto;
+}
+
+@media (min-width: 375px) {
+  .wrapper {
+    gap: 20px;
+  }
 }
 
 @media (min-width: 500px) {
