@@ -104,7 +104,6 @@
 .votes {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .clubs,
@@ -130,6 +129,7 @@
   align-items: center;
   gap: 20px;
   text-align: center;
+  margin-top: 28px;
 }
 
 .voteOptions {
@@ -141,6 +141,22 @@
 .votesIndicator {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.positiveVoteIndicatorWrapper,
+.negativeVoteIndicatorWrapper {
+  position: absolute;
+  top: 0;
+  height: 16px;
+}
+
+.positiveVoteIndicatorWrapper {
+  left: 0;
+}
+
+.negativeVoteIndicatorWrapper {
+  right: 0;
 }
 
 .positiveVoteIndicator,
@@ -150,12 +166,10 @@
 }
 
 .positiveVoteIndicator {
-  transform: translateX(3px);
   object-position: right;
 }
 
 .negativeVoteIndicator {
-  transform: translateX(-3px);
   object-position: left;
 }
 
@@ -175,11 +189,6 @@
 .negativeFiller {
   right: 0;
   background: var(--secondary-background);
-}
-
-.voteIndicatorWrapper {
-  position: relative;
-  height: 16px;
 }
 
 /*  */

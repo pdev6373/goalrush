@@ -304,8 +304,10 @@ export default function PlayerCard({ id, type, body }: PlayerCardType) {
 
       <div className={styles.votes}>
         <div className={styles.votesIndicator}>
-          <div className={styles.voteIndicatorWrapper} style={{ width: "40%" }}>
-            <div className={styles.positiveFiller}></div>
+          <div
+            className={styles.positiveVoteIndicatorWrapper}
+            style={{ width: "calc(40% + 3px)" }}
+          >
             <Image
               src="/assets/positive-votes.svg"
               alt="positive votes"
@@ -314,8 +316,10 @@ export default function PlayerCard({ id, type, body }: PlayerCardType) {
             />
           </div>
 
-          <div className={styles.voteIndicatorWrapper} style={{ width: "60%" }}>
-            <div className={styles.negativeFiller}></div>
+          <div
+            className={styles.negativeVoteIndicatorWrapper}
+            style={{ width: "calc(60% + 3px)" }}
+          >
             <Image
               src="/assets/negative-votes.svg"
               alt="negative votes"
