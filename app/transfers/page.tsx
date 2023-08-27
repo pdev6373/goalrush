@@ -8,7 +8,7 @@ export default function Transfers() {
     <div className={styles.players}>
       {AllTransfers[0].body.map((transfer, index) => (
         <Fragment key={index}>
-          <PlayerCard id={index + 1} body={transfer} />
+          <PlayerCard type="transfer" id={index + 1} body={transfer} />
         </Fragment>
       ))}
     </div>

@@ -144,3 +144,7 @@
 .secondary {
   color: var(--secondary-color);
 }
+
+.yellow {
+  color: var(--secondary-background);
+}

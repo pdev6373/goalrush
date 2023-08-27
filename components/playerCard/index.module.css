@@ -1,4 +1,5 @@
-.player {
+.player,
+.rumourPlayer {
   background: var(--main-background-300);
   border-radius: var(--main-border-radius-600);
   display: flex;
@@ -8,6 +9,10 @@
   position: relative;
   padding: 20px 26px;
   overflow: hidden;
+}
+
+.rumourPlayer {
+  gap: 24px;
 }
 
 .playerNumber {
@@ -51,7 +56,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  width: min(303px, 100%);
 }
 
 .club {
@@ -80,6 +84,105 @@
   transform: rotate(90deg);
 }
 
+/*  */
+
+.rumourMain,
+.rumourDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rumourMain {
+  gap: 30px;
+}
+
+.rumourDetails {
+  gap: 20px;
+}
+
+.votes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clubs,
+.votes,
+.divider,
+.rumourMain {
+  width: min(303px, 100%);
+}
+
+.divider {
+  padding-inline: 3.5px;
+}
+
+.dividerLine {
+  height: 1px;
+  background: var(--main-background-200);
+}
+
+.voteDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.voteOptions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.votesIndicator {
+  display: flex;
+  align-items: center;
+}
+
+.positiveVoteIndicator,
+.negativeVoteIndicator {
+  width: 100%;
+  object-fit: cover;
+}
+
+.positiveVoteIndicator {
+  transform: translateX(3px);
+  object-position: right;
+}
+
+.negativeVoteIndicator {
+  transform: translateX(-3px);
+  object-position: left;
+}
+
+.positiveFiller,
+.negativeFiller {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+
+.positiveFiller {
+  left: 0;
+  background: var(--active-color);
+}
+
+.negativeFiller {
+  right: 0;
+  background: var(--secondary-background);
+}
+
+.voteIndicatorWrapper {
+  position: relative;
+  height: 16px;
+}
+
+/*  */
 @media (min-width: 330px) {
   .mobileView {
     display: block;
@@ -100,11 +203,20 @@
     font-size: 24px;
     line-height: 32px;
   }
+
+  .voteDetails {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 500px) {
-  .player {
+  .player,
+  .rumourPlayer {
     padding: 20px 40px 24px;
+  }
+
+  .rumourPlayer {
+    gap: 30px;
   }
 
   .reasonWrapper {
@@ -134,7 +246,18 @@
     display: none;
   }
 
-  .clubs {
+  .divider {
+    padding-inline: 20px;
+  }
+
+  .clubs,
+  .divider,
+  .votes,
+  .rumourMain {
     width: min(336px, 100%);
+  }
+
+  .rumourMain {
+    gap: 50px;
   }
 }

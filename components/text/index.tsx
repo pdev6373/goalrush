@@ -36,6 +36,7 @@ export default function Text({
     variation === "main" && styles.main,
     variation === "main-300" && styles.main300,
     variation === "secondary" && styles.secondary,
+    variation === "yellow" && styles.yellow,
   ].join(" ");
 
   return type === "heading" ? (

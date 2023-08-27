@@ -67,6 +67,7 @@ export type LiveScoreType = {
 };
 
 export type NewsType = {
+  id: string;
   image: string;
   title: string;
   body: string;
@@ -110,6 +111,7 @@ export type TextType = {
     | "alert"
     | "alert-300"
     | "alert-200"
+    | "yellow"
     | "active";
 };
 
@@ -135,6 +137,7 @@ export type TransferBodyType = {
 };
 
 export type PlayerCardType = {
+  type: "transfer" | "rumours";
   id: number;
   body: TransferBodyType;
 };

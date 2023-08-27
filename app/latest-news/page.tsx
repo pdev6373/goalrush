@@ -24,8 +24,8 @@ export default function LatestNews() {
 
                 {News.map((news, index) => (
                   <Link
-                    href="/"
-                    key={index}
+                    href={`/latest-news/${news.id}`}
+                    key={news.id}
                     className={[styles.news, index % 2 && styles.newsOdd].join(
                       " "
                     )}
