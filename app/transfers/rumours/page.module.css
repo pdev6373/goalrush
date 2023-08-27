@@ -1,0 +1,18 @@
+.players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(390px, 100%), 1fr));
+  gap: 15px;
+}
+
+@media (min-width: 375px) {
+  .players {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .players {
+    row-gap: 20px;
+    column-gap: 30px;
+  }
+}
