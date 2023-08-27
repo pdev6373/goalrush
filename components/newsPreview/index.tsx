@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SectionHeading, Text, Wrapper } from "..";
 import { News } from "@/constants";
 import styles from "./index.module.css";
+import Link from "next/link";
 
 export default function NewsPreview() {
   return (
@@ -10,7 +11,7 @@ export default function NewsPreview() {
         <SectionHeading>Recent News</SectionHeading>
         <div className={styles.newsWrapper}>
           {News.slice(0, 3).map((news, index) => (
-            <div className={styles.news} key={index}>
+            <Link href="" className={styles.news} key={index}>
               <Image src={news.image} alt="news image" width={90} height={80} />
               <Wrapper noBackground gapStatic={12}>
                 <>
@@ -33,7 +34,7 @@ export default function NewsPreview() {
                   </Text>
                 </>
               </Wrapper>
-            </div>
+            </Link>
           ))}
         </div>
       </>

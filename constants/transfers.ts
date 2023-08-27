@@ -2,6 +2,7 @@ import { TransferType } from "@/types";
 
 const Transfer: TransferType[] = [
   {
+    id: "latest-transfers",
     category: "Latest Transfers",
     body: [
       {
@@ -178,6 +179,7 @@ const Transfer: TransferType[] = [
     ],
   },
   {
+    id: "top-transfers",
     category: "Top Transfers",
     body: [
       {
@@ -240,6 +242,7 @@ const Transfer: TransferType[] = [
     ],
   },
   {
+    id: "rumours",
     category: "Rumours",
     body: [
       {

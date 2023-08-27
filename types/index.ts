@@ -134,6 +134,7 @@ type TransferBodyType = {
   currentClub: TeansferBodyClubType;
 };
 export type TransferType = {
+  id: string;
   category: string;
   body: TransferBodyType[];
 };

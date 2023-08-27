@@ -13,6 +13,7 @@
   transition: background-color 0.15s ease-in;
   border-radius: var(--main-border-radius-300);
   flex-wrap: wrap;
+  background-color: var(--main-background-300);
 }
 
 .league:hover {

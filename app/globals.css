@@ -136,6 +136,7 @@ button {
   border-radius: var(--main-border-radius-300);
   max-width: 36px;
   aspect-ratio: 1 / 1;
+  background-color: var(--main-background);
 }
 
 .react-calendar__tile:hover {
