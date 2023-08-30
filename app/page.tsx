@@ -18,40 +18,54 @@ export default function Livescores() {
   const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
 
+  const closeDropDown = () => setCurrentDropDownToShow(null);
+
   return (
     <div className={styles.wrapper}>
+      <div
+        className={[
+          styles.positionedElementHide,
+          currentDropDownToShow?.length && styles.positionedElement,
+        ].join(" ")}
+        onClick={closeDropDown}
+      ></div>
+
       <section className={styles.allLeagues}>
         <Leagues />
       </section>
 
       <main className={styles.main}>
         <div className={styles.dropDowns}>
-          <div className={styles.dropDownWapper}>
-            <div onClick={() => dropdownHandler("all-cup")}>
-              <DropDownButton currentValue="All Cup" />
-            </div>
-            <div
-              className={[
-                styles.dropDownContent,
-                currentDropDownToShow === "all-cup" && styles.allCupDropDown,
-              ].join(" ")}
-            >
-              <Leagues />
-            </div>
+          <div
+            onClick={() => dropdownHandler("all-cup")}
+            className={styles.dropDownButton}
+          >
+            <DropDownButton currentValue="All Cup" />
           </div>
 
-          <div className={styles.dropDownWapper}>
-            <div onClick={() => dropdownHandler("calendar")}>
-              <DropDownButton currentValue="May, 29" />
-            </div>
-            <div
-              className={[
-                styles.dropDownContent,
-                currentDropDownToShow === "calendar" && styles.calendarDropDown,
-              ].join(" ")}
-            >
-              <Calendar />
-            </div>
+          <div
+            onClick={() => dropdownHandler("calendar")}
+            className={styles.dropDownButton}
+          >
+            <DropDownButton currentValue="May, 29" />
+          </div>
+
+          <div
+            className={[
+              styles.dropDownContent,
+              currentDropDownToShow === "all-cup" && styles.allCupDropDown,
+            ].join(" ")}
+          >
+            <Leagues />
+          </div>
+
+          <div
+            className={[
+              styles.dropDownContent,
+              currentDropDownToShow === "calendar" && styles.calendarDropDown,
+            ].join(" ")}
+          >
+            <Calendar />
           </div>
         </div>
 

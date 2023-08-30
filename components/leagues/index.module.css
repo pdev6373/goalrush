@@ -20,9 +20,23 @@
   background-color: var(--main-background-500);
 }
 
+.allLeagues {
+  padding-bottom: 6px;
+}
+
 @media (min-width: 500px) {
+  .allLeagues {
+    padding-bottom: 10px;
+  }
+
   .league {
     gap: 15px;
     padding: 10px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .allLeagues {
+    padding-bottom: 33px;
   }
 }

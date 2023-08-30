@@ -24,7 +24,7 @@ export default function LiveScores() {
               <div>
                 {league.teams.map((match) => (
                   <Link
-                    href=""
+                    href={`/england/${league.details.league}/${match.homeTeam.name}-${match.awayTeam.name}`}
                     className={styles.matchDetails}
                     key={match.homeTeam.name}
                   >

@@ -26,14 +26,14 @@ const Nav: NavType[] = [
       },
     ],
   },
-  {
-    name: "Stats",
-    route: "/stats",
-  },
-  {
-    name: "Rankings",
-    route: "/rankings",
-  },
+  // {
+  //   name: "Stats",
+  //   route: "/stats",
+  // },
+  // {
+  //   name: "Rankings",
+  //   route: "/rankings",
+  // },
 ];
 
 export default Nav;

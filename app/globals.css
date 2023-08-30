@@ -147,6 +147,10 @@ button {
   background-color: var(--active-color) !important;
 }
 
+.react-calendar__tile--active abbr {
+  color: var(--main-color);
+}
+
 .react-calendar__navigation__label {
   pointer-events: none;
 }

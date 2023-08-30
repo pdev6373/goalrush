@@ -16,9 +16,9 @@ export default function Leagues() {
           noBackground
           padding={20}
           gap={8}
-          extraStyles={{ paddingBlock: "0 33px" }}
+          extraStyles={{ paddingBlock: "0" }}
         >
-          <>
+          <div className={styles.allLeagues}>
             {AllLeagues.map((league) => (
               <Link
                 href={league.route}
@@ -37,7 +37,7 @@ export default function Leagues() {
                 </Text>
               </Link>
             ))}
-          </>
+          </div>
         </Wrapper>
       </>
     </Wrapper>

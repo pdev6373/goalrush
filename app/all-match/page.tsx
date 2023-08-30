@@ -7,9 +7,18 @@ export default function AllMatch() {
   const [showCalendar, setShowCalendar] = useState(false);
 
   const dropdownHandler = () => setShowCalendar((prev) => !prev);
+  const calendarCloseHandler = () => setShowCalendar(false);
 
   return (
     <div className={styles.wrapper}>
+      <div
+        className={[
+          styles.positionedElementHide,
+          showCalendar && styles.positionedElement,
+        ].join(" ")}
+        onClick={calendarCloseHandler}
+      ></div>
+
       <main className={styles.liveScores}>
         <div className={styles.dropDownWapper}>
           <div onClick={dropdownHandler}>
