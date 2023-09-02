@@ -4,6 +4,7 @@
   background: var(--main-background-300);
   outline: var(--main-border);
   border-radius: var(--main-border-radius);
+  overflow: hidden;
 }
 
 .noBackground {
@@ -74,6 +75,26 @@
 .gap30,
 .gapStatic30 {
   gap: 20px;
+}
+
+.radius300 {
+  border-radius: var(--main-border-radius-300);
+}
+
+.radius {
+  border-radius: var(--main-border-radius);
+}
+
+.radius500 {
+  border-radius: var(--main-border-radius-500);
+}
+
+.radius600 {
+  border-radius: var(--main-border-radius-600);
+}
+
+.center {
+  align-items: center;
 }
 
 /* @media (min-width: 300px) { */

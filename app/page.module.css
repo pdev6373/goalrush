@@ -32,6 +32,11 @@
   z-index: 1;
 }
 
+.dropDownButton {
+  flex: 1;
+  cursor: pointer;
+}
+
 .dropDownContent {
   position: absolute;
   top: calc(100% + 15px);
@@ -68,8 +73,11 @@
   display: block;
 }
 
-.dropDownButton {
-  flex: 1;
+.newsPreview {
+  max-height: calc(100vh - 131px);
+  overflow-y: auto;
+  border-radius: var(--main-border-radius);
+  border: var(--main-border);
 }
 
 @media (min-width: 330px) {
@@ -108,6 +116,9 @@
   .aside {
     flex: 1;
     min-width: 310px;
+    position: sticky;
+    top: 101px;
+    height: fit-content;
   }
 
   .wrapper {
@@ -135,6 +146,12 @@
   .allLeagues,
   .calendar {
     display: block;
+  }
+
+  .calendar {
+    border-radius: var(--main-border-radius);
+    border: var(--main-border);
+    overflow: hidden;
   }
 
   .allLeagues {

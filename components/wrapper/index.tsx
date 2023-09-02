@@ -9,6 +9,8 @@ export default function Wrapper({
   gapStatic,
   noBackground = false,
   extraStyles,
+  radius = "main",
+  center = false,
 }: WrapperType) {
   return (
     <div
@@ -16,6 +18,12 @@ export default function Wrapper({
         styles.wrapper,
 
         noBackground && styles.noBackground,
+        center && styles.center,
+
+        radius === "300" && styles.radius300,
+        radius === "main" && styles.radius,
+        radius === "500" && styles.radius500,
+        radius === "600" && styles.radius600,
 
         padding === 0 && styles.noPadding,
         padding === 8 && styles.padding8,

@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 export default function Leagues() {
   return (
-    <Wrapper gap={10}>
+    <div className={styles.wrapper}>
       <>
         <div className={styles.heading}>
           <SectionHeading>All Cup</SectionHeading>
@@ -40,6 +40,6 @@ export default function Leagues() {
           </div>
         </Wrapper>
       </>
-    </Wrapper>
+    </div>
   );
 }

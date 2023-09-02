@@ -1,8 +1,13 @@
+.wrapper {
+  background: var(--main-background-300);
+}
+
 .heading {
   position: sticky;
   top: 0;
   z-index: 2;
   background: var(--main-background-300);
+  margin-bottom: 6px;
 }
 
 .league {
@@ -32,6 +37,10 @@
   .league {
     gap: 15px;
     padding: 10px;
+  }
+
+  .heading {
+    margin-bottom: 10px;
   }
 }
 

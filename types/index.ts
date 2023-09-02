@@ -40,6 +40,8 @@ export type WrapperType = {
   gapStatic?: WrapperSpacingType;
   noBackground?: boolean;
   extraStyles?: CSSProperties | undefined;
+  radius?: "300" | "main" | "500" | "600";
+  center?: boolean;
 };
 
 type LiveScoreDetailsType = {

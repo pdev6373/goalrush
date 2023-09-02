@@ -68,6 +68,8 @@
     display: block;
     flex: 1;
     max-width: 364px;
+    position: sticky;
+    top: 101px;
   }
 
   .dropDownWapper {

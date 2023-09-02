@@ -39,7 +39,7 @@ export default function RootLayout({ children }: LayoutType) {
           <Header />
         </div>
 
-        <div className={styles.children}>{children}</div>
+        {children}
       </body>
     </html>
   );

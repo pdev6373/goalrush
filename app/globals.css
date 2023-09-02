@@ -73,6 +73,14 @@ button {
   cursor: pointer;
 }
 
+.main-wrapper {
+  padding: 15px 10px 30px;
+}
+
+.main-wrapper-no-inline-padding {
+  padding: 15px 0 30px;
+}
+
 .react-calendar__navigation {
   width: 100%;
   display: flex;
@@ -173,6 +181,30 @@ button {
 
   .react-calendar__viewContainer {
     padding: 20px;
+  }
+}
+
+@media (min-width: 375px) {
+  .main-wrapper {
+    padding: 20px 24px 30px;
+  }
+
+  .main-wrapper-no-inline-padding {
+    padding: 20px 0 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  .main-wrapper,
+  .main-wrapper-no-inline-padding {
+    padding-inline: 30px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .main-wrapper,
+  .main-wrapper-no-inline-padding {
+    padding: 20px 40px 30px;
   }
 }
 

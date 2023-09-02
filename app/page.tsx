@@ -21,66 +21,71 @@ export default function Livescores() {
   const closeDropDown = () => setCurrentDropDownToShow(null);
 
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={[
-          styles.positionedElementHide,
-          currentDropDownToShow?.length && styles.positionedElement,
-        ].join(" ")}
-        onClick={closeDropDown}
-      ></div>
+    <div className="main-wrapper">
+      <div className={styles.wrapper}>
+        <div
+          className={[
+            styles.positionedElementHide,
+            currentDropDownToShow?.length && styles.positionedElement,
+          ].join(" ")}
+          onClick={closeDropDown}
+        ></div>
 
-      <section className={styles.allLeagues}>
-        <Leagues />
-      </section>
+        <section className={styles.allLeagues}>
+          <Leagues />
+        </section>
 
-      <main className={styles.main}>
-        <div className={styles.dropDowns}>
-          <div
-            onClick={() => dropdownHandler("all-cup")}
-            className={styles.dropDownButton}
-          >
-            <DropDownButton currentValue="All Cup" />
-          </div>
+        <main className={styles.main}>
+          <div className={styles.dropDowns}>
+            <div
+              onClick={() => dropdownHandler("all-cup")}
+              className={styles.dropDownButton}
+            >
+              <DropDownButton currentValue="All Cup" />
+            </div>
 
-          <div
-            onClick={() => dropdownHandler("calendar")}
-            className={styles.dropDownButton}
-          >
-            <DropDownButton currentValue="May, 29" />
-          </div>
+            <div
+              onClick={() => dropdownHandler("calendar")}
+              className={styles.dropDownButton}
+            >
+              <DropDownButton currentValue="May, 29" />
+            </div>
 
-          <div
-            className={[
-              styles.dropDownContent,
-              currentDropDownToShow === "all-cup" && styles.allCupDropDown,
-            ].join(" ")}
-          >
-            <Leagues />
-          </div>
+            <div
+              className={[
+                styles.dropDownContent,
+                currentDropDownToShow === "all-cup" && styles.allCupDropDown,
+              ].join(" ")}
+            >
+              <Leagues />
+            </div>
 
-          <div
-            className={[
-              styles.dropDownContent,
-              currentDropDownToShow === "calendar" && styles.calendarDropDown,
-            ].join(" ")}
-          >
-            <Calendar />
-          </div>
-        </div>
-
-        <LiveScores />
-      </main>
-
-      <div className={styles.aside}>
-        <Wrapper noBackground gap={30}>
-          <>
-            <div className={styles.calendar}>
+            <div
+              className={[
+                styles.dropDownContent,
+                currentDropDownToShow === "calendar" && styles.calendarDropDown,
+              ].join(" ")}
+            >
               <Calendar />
             </div>
-            <NewsPreview />
-          </>
-        </Wrapper>
+          </div>
+
+          <LiveScores />
+        </main>
+
+        <div className={styles.aside}>
+          <Wrapper noBackground gap={30}>
+            <>
+              <div className={styles.calendar}>
+                <Calendar />
+              </div>
+
+              <div className={styles.newsPreview}>
+                <NewsPreview />
+              </div>
+            </>
+          </Wrapper>
+        </div>
       </div>
     </div>
   );
