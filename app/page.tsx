@@ -38,8 +38,8 @@ export default function Livescores() {
         <main className={styles.main}>
           <div className={styles.dropDowns}>
             <div
-              onClick={() => dropdownHandler("all-cup")}
               className={styles.dropDownButton}
+              onClick={() => dropdownHandler("all-cup")}
             >
               <DropDownButton currentValue="All Cup" />
             </div>
