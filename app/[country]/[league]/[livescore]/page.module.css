@@ -1,0 +1,27 @@
+.linUpsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.lineUps {
+  flex: 1;
+}
+
+.fieldTop {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 11.0667 / 1;
+}
+
+.fieldMain {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.4292;
+}
+
+@media (min-width: 500px) {
+  .linUpsWrapper {
+    flex-direction: row;
+    gap: 32px;
+  }
+}

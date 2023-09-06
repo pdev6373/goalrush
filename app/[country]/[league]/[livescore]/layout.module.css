@@ -1,0 +1,354 @@
+.topWrapper {
+  margin-inline: auto;
+  width: min(100%, 770px);
+  border-radius: var(--main-border-radius-600);
+  border: var(--main-border);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 10px;
+  border-bottom: var(--main-border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.voteHeader,
+.votePercentLineWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.leagueName {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.leagueLogoWeb {
+  display: none;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teamInfo {
+  border-bottom: var(--main-border);
+  position: relative;
+}
+
+.teamBox {
+  position: absolute;
+}
+
+.teamBoxAway {
+  right: 0;
+  width: 167px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.teamBoxInner,
+.teamBoxInnerInner,
+.teamBoxWhite {
+  position: absolute;
+  height: 179px;
+}
+
+.teamBoxInner {
+  width: 167px;
+}
+
+.teamBoxInnerInner {
+  width: 124px;
+}
+
+.teamBoxWhite {
+  width: 126px;
+}
+
+.matchDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 10.5px 40px;
+}
+
+.teamScores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.teamScoresInner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.clubDetails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoWrapper {
+  position: relative;
+}
+
+.clubLogoWeb {
+  display: none;
+}
+
+.star,
+.starMobile,
+.starDim,
+.starDimMobile {
+  position: absolute;
+  bottom: 0;
+}
+
+.star,
+.starMobile {
+  right: 0;
+}
+
+.starDim,
+.starDimMobile {
+  left: 0;
+}
+
+.star,
+.starDim {
+  display: none;
+}
+
+.teamNameWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.scorer,
+.teamAbbr {
+  color: var(--main-color-300);
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.addVoteButton {
+  background: var(--secondary-background);
+  border-radius: var(--main-border-radius);
+  padding: 6px 10px;
+}
+
+.matchTime {
+  height: 54px;
+  align-self: flex-start;
+  display: grid;
+  place-content: center;
+}
+
+.clubName {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--main-color);
+}
+
+.homeScore {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.matchTime {
+  height: 82px;
+}
+
+.homeScore {
+  gap: 8px;
+}
+
+.scorerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.leftAuto {
+  margin-left: auto;
+}
+
+.rightAuto {
+  margin-right: auto;
+}
+
+.teamScore {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--main-color);
+}
+
+.voteHeader,
+.votePercentLineWrapper {
+  justify-content: center;
+}
+
+.voteHeader {
+  gap: 5px;
+}
+
+.vote {
+  padding-block: 12px;
+  border-bottom: var(--main-border);
+}
+
+.voteDetails {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.goalIconDesktop {
+  display: none;
+}
+
+.bottom,
+.bottomList {
+  display: flex;
+  align-items: center;
+}
+
+.bottomList {
+  gap: 20px;
+}
+
+.bottom {
+  justify-content: space-between;
+  padding: 9px 24px;
+}
+
+@media (min-width: 272px) {
+  .top {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 330px) {
+  .top {
+    padding: 8px 24px;
+  }
+}
+
+@media (min-width: 500px) {
+  .leagueName {
+    gap: 14px;
+  }
+
+  .top {
+    padding: 11px 20px;
+  }
+
+  .leagueLogoWeb {
+    display: block;
+  }
+
+  .leagueLogoMobile {
+    display: none;
+  }
+
+  .matchDetails {
+    gap: 20px;
+    padding: 9.5px 40px;
+  }
+
+  .teamScores {
+    gap: 21px;
+  }
+
+  .teamScoresInner {
+    gap: 20px;
+  }
+
+  .clubDetails {
+    gap: 26px;
+  }
+
+  .clubLogoWeb {
+    display: block;
+  }
+
+  .clubLogoMobile {
+    display: none;
+  }
+
+  .star,
+  .starDim {
+    display: block;
+  }
+
+  .star {
+    transform: translate(50%, 50%);
+  }
+
+  .starDim {
+    transform: translate(-50%, 50%);
+  }
+
+  .starMobile,
+  .starDimMobile {
+    display: none;
+  }
+
+  .scorer,
+  .teamAbbr {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .addVoteButton {
+    padding-inline: 14px;
+  }
+
+  .goalIconDesktop {
+    display: block;
+  }
+
+  .goalIconMobile {
+    display: none;
+  }
+
+  .scorerWrapper {
+    gap: 15px;
+  }
+
+  .clubName {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .teamScore {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .bottomList {
+    gap: 28px;
+  }
+}
