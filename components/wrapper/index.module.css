@@ -77,6 +77,10 @@
   gap: 20px;
 }
 
+.noRadius {
+  border-radius: none;
+}
+
 .radius300 {
   border-radius: var(--main-border-radius-300);
 }

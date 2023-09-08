@@ -6,20 +6,30 @@
 }
 
 .top {
+  border-bottom: var(--main-border);
+  gap: 12px;
+}
+
+.top,
+.bottom {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   padding: 8px 10px;
-  border-bottom: var(--main-border);
   flex-wrap: wrap;
-  gap: 12px;
 }
 
 .voteHeader,
 .votePercentLineWrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+.votePercentLineWrapper {
+  flex-direction: column;
+  gap: 20px;
 }
 
 .leagueName {
@@ -46,13 +56,15 @@
   position: relative;
 }
 
-.teamBox {
+.teamBox,
+.teamBoxAway {
   position: absolute;
+  height: 100%;
 }
 
 .teamBoxAway {
   right: 0;
-  width: 167px;
+  aspect-ratio: 1 / 1.07;
   display: flex;
   justify-content: flex-end;
 }
@@ -61,19 +73,19 @@
 .teamBoxInnerInner,
 .teamBoxWhite {
   position: absolute;
-  height: 179px;
+  height: 100%;
 }
 
 .teamBoxInner {
-  width: 167px;
+  aspect-ratio: 1 / 1.07;
 }
 
 .teamBoxInnerInner {
-  width: 124px;
+  aspect-ratio: 1 / 1.44;
 }
 
 .teamBoxWhite {
-  width: 126px;
+  aspect-ratio: 1 / 1.42;
 }
 
 .matchDetails {
@@ -169,14 +181,14 @@
   color: var(--main-color);
 }
 
+.clubNameAway {
+  color: var(--main-color-300);
+}
+
 .homeScore {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.matchTime {
-  height: 82px;
 }
 
 .homeScore {
@@ -204,17 +216,12 @@
   color: var(--main-color);
 }
 
-.voteHeader,
-.votePercentLineWrapper {
-  justify-content: center;
-}
-
 .voteHeader {
   gap: 5px;
 }
 
 .vote {
-  padding-block: 12px;
+  padding: 12px;
   border-bottom: var(--main-border);
 }
 
@@ -236,23 +243,58 @@
 
 .bottomList {
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .bottom {
   justify-content: space-between;
-  padding: 9px 24px;
+  gap: 24px;
 }
 
-@media (min-width: 272px) {
-  .top {
+.activeLink > * {
+  color: var(--active-color);
+  position: relative;
+}
+
+.activeLink > *::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--active-color);
+  left: 0;
+  bottom: -8px;
+}
+
+@media (min-width: 273px) {
+  .top,
+  .bottom {
     justify-content: space-between;
     flex-direction: row;
+  }
+
+  .activeLink > *::after {
+    bottom: -14px;
   }
 }
 
 @media (min-width: 330px) {
   .top {
     padding: 8px 24px;
+  }
+
+  .bottom {
+    padding: 9px 24px;
+  }
+
+  .activeLink > *::after {
+    bottom: -15px;
+  }
+
+  .votePercentLineWrapper {
+    flex-direction: row;
+    gap: 0;
   }
 }
 
@@ -273,9 +315,52 @@
     display: none;
   }
 
-  .matchDetails {
-    gap: 20px;
-    padding: 9.5px 40px;
+  .addVoteButton {
+    padding-inline: 14px;
+  }
+
+  .bottomList {
+    gap: 28px;
+  }
+
+  .scorerWrapper {
+    gap: 15px;
+  }
+
+  .scorer,
+  .teamAbbr {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .goalIconDesktop {
+    display: block;
+  }
+
+  .goalIconMobile {
+    display: none;
+  }
+
+  .clubName {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .clubDetails {
+    gap: 18px;
+  }
+
+  .starMobile {
+    transform: translate(30%, 30%);
+  }
+
+  .starDimMobile {
+    transform: translate(-30%, 30%);
+  }
+
+  .teamScore {
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .teamScores {
@@ -285,17 +370,11 @@
   .teamScoresInner {
     gap: 20px;
   }
+}
 
+@media (min-width: 900px) {
   .clubDetails {
     gap: 26px;
-  }
-
-  .clubLogoWeb {
-    display: block;
-  }
-
-  .clubLogoMobile {
-    display: none;
   }
 
   .star,
@@ -316,39 +395,22 @@
     display: none;
   }
 
-  .scorer,
-  .teamAbbr {
-    font-size: 12px;
-    line-height: 18px;
-  }
-
-  .addVoteButton {
-    padding-inline: 14px;
-  }
-
-  .goalIconDesktop {
+  .clubLogoWeb {
     display: block;
   }
 
-  .goalIconMobile {
+  .clubLogoMobile {
     display: none;
   }
 
-  .scorerWrapper {
-    gap: 15px;
+  /*  */
+
+  .matchTime {
+    height: 82px;
   }
 
-  .clubName {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .teamScore {
-    font-size: 32px;
-    line-height: 40px;
-  }
-
-  .bottomList {
-    gap: 28px;
+  .matchDetails {
+    gap: 20px;
+    padding: 9.5px 40px;
   }
 }

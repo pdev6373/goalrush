@@ -9,7 +9,7 @@ export default function Wrapper({
   gapStatic,
   noBackground = false,
   extraStyles,
-  radius = "main",
+  radius,
   center = false,
 }: WrapperType) {
   return (
@@ -20,6 +20,7 @@ export default function Wrapper({
         noBackground && styles.noBackground,
         center && styles.center,
 
+        radius === "none" && styles.noRadius,
         radius === "300" && styles.radius300,
         radius === "main" && styles.radius,
         radius === "500" && styles.radius500,
