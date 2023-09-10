@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import {
   Calendar,
   Leagues,
@@ -10,15 +10,26 @@ import {
 } from "@/components";
 import styles from "./page.module.css";
 import { HomeTypes } from "@/types";
+import { useFetch } from "@/hooks";
 
 export default function Livescores() {
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
+  const { fetchData } = useFetch();
 
   const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
-
   const closeDropDown = () => setCurrentDropDownToShow(null);
+
+  // const livescores = use(
+  //   fetchData({
+  //     url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`,
+  //   })
+  // );
+
+  const livescores = { data: {} };
+
+  console.log(livescores);
 
   return (
     <div className="main-wrapper">
@@ -70,7 +81,7 @@ export default function Livescores() {
             </div>
           </div>
 
-          <LiveScores />
+          <LiveScores livescores={livescores.data} />
         </main>
 
         <div className={styles.aside}>

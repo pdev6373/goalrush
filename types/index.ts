@@ -149,3 +149,13 @@ export type TransferType = {
   category: string;
   body: TransferBodyType[];
 };
+
+export type FetchType = {
+  url: string;
+  method?: "GET" | "POST";
+  payload?: object;
+};
+
+export type LiveScoresType = {
+  livescores: any;
+};
