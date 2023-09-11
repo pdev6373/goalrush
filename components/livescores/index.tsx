@@ -5,36 +5,55 @@ import Image from "next/image";
 import Link from "next/link";
 import { LiveScoresType } from "@/types";
 
-export default function LiveScores({ livescores }: LiveScoresType) {
+export default function LiveScores({
+  data,
+  message,
+  succeeded,
+}: LiveScoresType) {
+  const isLive = (time: string) => time.includes("'");
+
+  if (!data?.length)
+    return (
+      <div className={styles.noData}>
+        <Wrapper
+          padding={20}
+          gap={20}
+          extraStyles={{
+            display: "grid",
+            placeContent: "center",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <p>Oops!, An Error Occurred</p>
+        </Wrapper>
+      </div>
+    );
+
   return (
     <Wrapper padding={20} gap={20}>
-      {livescores.map((livescore: any, index: number) => (
-        <Wrapper noBackground gap={10} key={index}>
-          <>
-            <div className={styles.leagueHeader}>
-              <div>
+      <>
+        {data.map((livescore, index) => (
+          <Wrapper noBackground gap={10} key={index}>
+            <>
+              <div className={styles.leagueHeader}>
+                <div>
+                  <Text size={14} type="body" variation="main" weight="700">
+                    {livescore.details.stageName}
+                  </Text>
+                  <Text size={14} type="body" variation="main" weight="700">
+                    {livescore.details.competitionName}
+                  </Text>
+                </div>
+
                 <Text size={14} type="body" variation="main" weight="700">
-                  {livescore["CompN"]}
-                </Text>
-                <Text size={14} type="body" variation="main" weight="700">
-                  {livescore["Snm"]}
+                  29/05/2022
                 </Text>
               </div>
 
-              <Text size={14} type="body" variation="main" weight="700">
-                29/05/2022
-              </Text>
-            </div>
-
-            <div>
-              {livescore["Events"].map((match: any, index: number) => (
-                <Link
-                  href=""
-                  // href={`/england/${league.details.league}/${match.homeTeam.name}-${match.awayTeam.name}`}
-                  className={styles.matchDetails}
-                  key={index}
-                >
-                  {/* {match.isLive ? (
+              {livescore.events.map((event, index) => (
+                <Link href="" className={styles.matchDetails} key={index}>
+                  {isLive(event.time) ? (
                     <div className={styles.live}>
                       <Text
                         size={14}
@@ -48,54 +67,53 @@ export default function LiveScores({ livescores }: LiveScoresType) {
                   ) : (
                     <div className={styles.fulltime}>
                       <Text size={14} type="body" variation="main" weight="600">
-                        FT
+                        {event.time}
                       </Text>
                     </div>
-                  )} */}
+                  )}
 
                   <div className={styles.matchTeams}>
                     <div className={styles.teamWrapper}>
                       <Text size={14} type="body" variation="main" weight="600">
-                        {match["T1"][0]["Nm"]}
+                        {event.homeTeam.name}
                       </Text>
+
                       <Image
-                        // src={match.homeTeam.logo}
-                        // src="https://lsm-static-prod.livescore.com/medium/enet/6346.png"
-                        src=""
+                        src={event.homeTeam.logo}
                         alt="home team logo"
                         width={24}
                         height={24}
                         className={styles.teamLogoWeb}
                       />
-                      {/* <Image
-                        src={match.homeTeam.logo}
+                      <Image
+                        src={event.homeTeam.logo}
                         alt="home team logo"
                         width={20}
                         height={20}
                         className={styles.teamLogoMobile}
-                      /> */}
-                      {/*
-
+                      />
 
                       <p className={styles.matchScoresMobile}>
-                        {match.homeTeam.score}
+                        {event.homeTeam.score}
                       </p>
                     </div>
 
                     <p className={styles.matchScores}>
-                      {`${match.homeTeam.score} : ${match.awayTeam.score}`}
+                      {`${
+                        event.homeTeam.score ? event.homeTeam.score : "-"
+                      } : ${event.awayTeam.score ? event.awayTeam.score : "-"}`}
                     </p>
 
                     <div className={styles.teamWrapper}>
                       <Image
-                        src={match.awayTeam.logo}
+                        src={event.awayTeam.logo}
                         alt="away team logo"
                         width={24}
                         height={24}
                         className={styles.teamLogoWeb}
                       />
                       <Image
-                        src={match.homeTeam.logo}
+                        src={event.homeTeam.logo}
                         alt="home team logo"
                         width={20}
                         height={20}
@@ -109,149 +127,16 @@ export default function LiveScores({ livescores }: LiveScoresType) {
                           variation="main"
                           weight="600"
                         >
-                          {match.awayTeam.name}
+                          {event.awayTeam.name}
                         </Text>
                       </div>
                       <p className={styles.matchScoresMobile}>
-                        {match.awayTeam.score}
+                        {event.awayTeam.score}
                       </p>
-                    */}
                     </div>
                   </div>
 
-                  <div className={styles.matchTime}>
-                    <Text
-                      size={14}
-                      type="body"
-                      variation="secondary"
-                      weight="600"
-                    >
-                      {match["Eps"]}
-                    </Text>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </>
-        </Wrapper>
-      ))}
-    </Wrapper>
-  );
-
-  return (
-    <Wrapper padding={20} gap={20}>
-      <>
-        {AllLiveScores.map((league) => (
-          <Wrapper noBackground gap={10} key={league.details.league}>
-            <>
-              <div className={styles.leagueHeader}>
-                <Text size={14} type="body" variation="main" weight="700">
-                  {league.details.league}
-                </Text>
-
-                <Text size={14} type="body" variation="main" weight="700">
-                  {league.details.time}
-                </Text>
-              </div>
-
-              <div>
-                {league.teams.map((match) => (
-                  <Link
-                    href={`/england/${league.details.league}/${match.homeTeam.name}-${match.awayTeam.name}`}
-                    className={styles.matchDetails}
-                    key={match.homeTeam.name}
-                  >
-                    {match.isLive ? (
-                      <div className={styles.live}>
-                        <Text
-                          size={14}
-                          type="body"
-                          variation="alert"
-                          weight="600"
-                        >
-                          • Live
-                        </Text>
-                      </div>
-                    ) : (
-                      <div className={styles.fulltime}>
-                        <Text
-                          size={14}
-                          type="body"
-                          variation="main"
-                          weight="600"
-                        >
-                          FT
-                        </Text>
-                      </div>
-                    )}
-
-                    <div className={styles.matchTeams}>
-                      <div className={styles.teamWrapper}>
-                        <Text
-                          size={14}
-                          type="body"
-                          variation="main"
-                          weight="600"
-                        >
-                          {match.homeTeam.name}
-                        </Text>
-
-                        <Image
-                          src={match.homeTeam.logo}
-                          alt="home team logo"
-                          width={24}
-                          height={24}
-                          className={styles.teamLogoWeb}
-                        />
-                        <Image
-                          src={match.homeTeam.logo}
-                          alt="home team logo"
-                          width={20}
-                          height={20}
-                          className={styles.teamLogoMobile}
-                        />
-
-                        <p className={styles.matchScoresMobile}>
-                          {match.homeTeam.score}
-                        </p>
-                      </div>
-
-                      <p className={styles.matchScores}>
-                        {`${match.homeTeam.score} : ${match.awayTeam.score}`}
-                      </p>
-
-                      <div className={styles.teamWrapper}>
-                        <Image
-                          src={match.awayTeam.logo}
-                          alt="away team logo"
-                          width={24}
-                          height={24}
-                          className={styles.teamLogoWeb}
-                        />
-                        <Image
-                          src={match.homeTeam.logo}
-                          alt="home team logo"
-                          width={20}
-                          height={20}
-                          className={styles.teamLogoMobile}
-                        />
-
-                        <div>
-                          <Text
-                            size={14}
-                            type="body"
-                            variation="main"
-                            weight="600"
-                          >
-                            {match.awayTeam.name}
-                          </Text>
-                        </div>
-                        <p className={styles.matchScoresMobile}>
-                          {match.awayTeam.score}
-                        </p>
-                      </div>
-                    </div>
-
+                  {isLive(event.time) && (
                     <div className={styles.matchTime}>
                       <Text
                         size={14}
@@ -259,12 +144,12 @@ export default function LiveScores({ livescores }: LiveScoresType) {
                         variation="secondary"
                         weight="600"
                       >
-                        {match.time}
+                        {event.time}
                       </Text>
                     </div>
-                  </Link>
-                ))}
-              </div>
+                  )}
+                </Link>
+              ))}
             </>
           </Wrapper>
         ))}

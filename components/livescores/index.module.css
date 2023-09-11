@@ -1,3 +1,9 @@
+.noData {
+  height: calc(100vh - 230px);
+  position: sticky;
+  top: 101px;
+}
+
 .leagueHeader {
   display: flex;
   justify-content: space-between;
@@ -52,12 +58,19 @@
   flex-direction: column;
   gap: 4px;
   flex-grow: 1;
+  margin-inline: auto;
 }
 
 .teamWrapper {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.teamLogoWeb,
+.teamLogoMobile {
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .teamLogoWeb {
@@ -77,6 +90,10 @@
 }
 
 @media (min-width: 330px) {
+  .noData {
+    height: calc(100vh - 163px);
+  }
+
   .leagueHeader {
     flex-direction: row;
     align-items: center;
@@ -84,6 +101,10 @@
 }
 
 @media (min-width: 375px) {
+  .noData {
+    height: calc(100vh - 183px);
+  }
+
   .matchTeams {
     flex-direction: row;
     align-items: center;
@@ -103,6 +124,10 @@
 }
 
 @media (min-width: 500px) {
+  .noData {
+    height: calc(100vh - 203px);
+  }
+
   .leagueHeader {
     padding-inline: 20px;
   }
@@ -159,5 +184,11 @@
 
   .matchTeams {
     flex-grow: 0;
+  }
+}
+
+@media (min-width: 1300px) {
+  .noData {
+    height: calc(100vh - 131px);
   }
 }

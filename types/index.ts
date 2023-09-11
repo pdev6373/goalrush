@@ -45,27 +45,39 @@ export type WrapperType = {
 };
 
 type LiveScoreDetailsType = {
-  league: string;
+  stageId: string;
+  stageName: string;
+  stageRoute: string;
+  competitionName: string;
+  competitionRoute: string;
   time: string;
 };
 
 type LiveScoreTeamDetailsType = {
+  id: string;
   name: string;
-  logo: string;
   score: number;
+  logo: string;
 };
 
-type LiveScoreTeamType = {
+type LiveScoreEventType = {
+  eventId: string;
   isLive: boolean;
-  time: string;
   winningTeam: "home" | "away" | "none";
+  time: string;
   homeTeam: LiveScoreTeamDetailsType;
   awayTeam: LiveScoreTeamDetailsType;
 };
 
-export type LiveScoreType = {
+export type AllLiveScoresType = {
   details: LiveScoreDetailsType;
-  teams: LiveScoreTeamType[];
+  events: LiveScoreEventType[];
+};
+
+export type LiveScoresType = {
+  succeeded: boolean;
+  message: string;
+  data: AllLiveScoresType[];
 };
 
 export type NewsType = {
@@ -154,8 +166,4 @@ export type FetchType = {
   url: string;
   method?: "GET" | "POST";
   payload?: object;
-};
-
-export type LiveScoresType = {
-  livescores: any;
 };

@@ -9,7 +9,7 @@ import {
   DropDownButton,
 } from "@/components";
 import styles from "./page.module.css";
-import { HomeTypes } from "@/types";
+import { HomeTypes, LiveScoresType } from "@/types";
 import { useFetch } from "@/hooks";
 
 export default function Livescores() {
@@ -21,15 +21,15 @@ export default function Livescores() {
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
   const closeDropDown = () => setCurrentDropDownToShow(null);
 
-  // const livescores = use(
-  //   fetchData({
-  //     url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`,
-  //   })
-  // );
+  const livescores: LiveScoresType = use(
+    fetchData({
+      url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`,
+    })
+  );
 
-  const livescores = { data: {} };
+  const { data, message, succeeded } = livescores;
 
-  console.log(livescores);
+  console.log(data);
 
   return (
     <div className="main-wrapper">
@@ -81,7 +81,7 @@ export default function Livescores() {
             </div>
           </div>
 
-          <LiveScores livescores={livescores.data} />
+          <LiveScores data={data} message={message} succeeded={succeeded} />
         </main>
 
         <div className={styles.aside}>

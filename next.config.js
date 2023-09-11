@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ["lsm-static-prod.livescore.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

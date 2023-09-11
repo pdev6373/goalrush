@@ -10,6 +10,7 @@ export default function useFetch() {
         // "API-Key": process.env.DATA_API_KEY,
       },
       body: JSON.stringify(payload),
+      cache: "no-store",
     });
 
     const data = await res.json();
