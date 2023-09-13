@@ -11,21 +11,37 @@ import {
 import styles from "./page.module.css";
 import { HomeTypes, LiveScoresType } from "@/types";
 import { useFetch } from "@/hooks";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 export default function Livescores() {
-  const [socket, setSocket] = useState<any>(null);
+  // const [socket, setSocket] = useState<any>(null);
   const [allLivescores, setAllLivescores] = useState([]);
 
   useEffect(() => {
-    setSocket(io("http://localhost:3501"));
+    const socketProtocol =
+      window.location.protocol === "https:" ? "wss:" : "ws:";
+    const echoSocketUrl =
+      socketProtocol + "//" + window.location.hostname + "/echo/";
+    const socket = new WebSocket(echoSocketUrl);
+
+    socket.onopen = () => {
+      socket.send("Here's some text that the server is urgently awaiting!");
+    };
+
+    socket.onmessage = (e: any) => {
+      console.log("Message from server:", e?.data);
+    };
   }, []);
 
-  useEffect(() => {
-    socket?.on("livescores", (message: any) => {
-      console.log(message);
-    });
-  }, [socket]);
+  // useEffect(() => {
+  //   setSocket(io("http://localhost:3501"));
+  // }, []);
+
+  // useEffect(() => {
+  //   socket?.on("livescores", (message: any) => {
+  //     console.log(message);
+  //   });
+  // }, [socket]);
 
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
