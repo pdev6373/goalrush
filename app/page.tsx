@@ -1,5 +1,5 @@
 "use client";
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import {
   Calendar,
   Leagues,
@@ -11,8 +11,22 @@ import {
 import styles from "./page.module.css";
 import { HomeTypes, LiveScoresType } from "@/types";
 import { useFetch } from "@/hooks";
+import { io } from "socket.io-client";
 
 export default function Livescores() {
+  const [socket, setSocket] = useState<any>(null);
+  const [allLivescores, setAllLivescores] = useState([]);
+
+  useEffect(() => {
+    setSocket(io("http://localhost:3501"));
+  }, []);
+
+  useEffect(() => {
+    socket?.on("livescores", (message: any) => {
+      console.log(message);
+    });
+  }, [socket]);
+
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
   const { fetchData } = useFetch();
@@ -24,7 +38,7 @@ export default function Livescores() {
   const livescores: LiveScoresType = use(
     fetchData({
       url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`,
-    })
+    }) as any // remove as any
   );
 
   const { data, message, succeeded } = livescores;
