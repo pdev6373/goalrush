@@ -15,6 +15,10 @@
   border-radius: var(--main-border-radius-300);
 }
 
+.date {
+  margin-top: auto;
+}
+
 .matchTime {
   background: var(--secondary-background);
   border-radius: var(--main-border-radius-300);
@@ -65,12 +69,13 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  flex: 1;
 }
 
 .teamLogoWeb,
 .teamLogoMobile {
-  border-radius: 50%;
-  overflow: hidden;
+  /* border-radius: 50%; */
+  /* overflow: hidden; */
 }
 
 .teamLogoWeb {
@@ -120,6 +125,10 @@
 
   .teamLogoMobile {
     order: 0;
+  }
+
+  .teamName {
+    margin-left: auto;
   }
 }
 
@@ -183,7 +192,8 @@
   }
 
   .matchTeams {
-    flex-grow: 0;
+    /* flex-grow: 0; */
+    /* justify-content: center; */
   }
 }
 

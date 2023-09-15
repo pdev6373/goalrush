@@ -1,5 +1,5 @@
 "use client";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Calendar,
   Leagues,
@@ -8,58 +8,43 @@ import {
   Wrapper,
   DropDownButton,
 } from "@/components";
-import styles from "./page.module.css";
 import { HomeTypes, LiveScoresType } from "@/types";
-import { useFetch } from "@/hooks";
-// import { io } from "socket.io-client";
+import styles from "./page.module.css";
 
 export default function Livescores() {
-  // const [socket, setSocket] = useState<any>(null);
-  const [allLivescores, setAllLivescores] = useState([]);
+  const [livescores, setLivescores] = useState<LiveScoresType>({
+    data: [],
+    message: "",
+    succeeded: false,
+  });
 
   useEffect(() => {
-    const socketProtocol =
-      window.location.protocol === "https:" ? "wss:" : "ws:";
-    const echoSocketUrl =
-      socketProtocol + "//" + window.location.hostname + "/echo/";
-    const socket = new WebSocket(echoSocketUrl);
+    // const socketProtocol =
+    //   window.location.protocol === "https:" ? "wss:" : "ws:";
+    // const livescoresSocketUrl =
+    //   socketProtocol + "//" + window.location.hostname + ":443" + "/livescores";
+    // const socket = new WebSocket(livescoresSocketUrl);
+    const socket = new WebSocket(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`
+    );
 
-    socket.onopen = () => {
-      socket.send("Here's some text that the server is urgently awaiting!");
-    };
+    socket.onopen = () => socket.send("");
 
     socket.onmessage = (e: any) => {
-      console.log("Message from server:", e?.data);
+      console.log(JSON.parse(e?.data));
+
+      setLivescores(JSON.parse(e?.data));
     };
   }, []);
 
-  // useEffect(() => {
-  //   setSocket(io("http://localhost:3501"));
-  // }, []);
-
-  // useEffect(() => {
-  //   socket?.on("livescores", (message: any) => {
-  //     console.log(message);
-  //   });
-  // }, [socket]);
-
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
-  const { fetchData } = useFetch();
 
   const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
   const closeDropDown = () => setCurrentDropDownToShow(null);
 
-  const livescores: LiveScoresType = use(
-    fetchData({
-      url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`,
-    }) as any // remove as any
-  );
-
   const { data, message, succeeded } = livescores;
-
-  console.log(data);
 
   return (
     <div className="main-wrapper">
@@ -72,12 +57,12 @@ export default function Livescores() {
           onClick={closeDropDown}
         ></div>
 
-        <section className={styles.allLeagues}>
+        {/* <section className={styles.allLeagues}>
           <Leagues />
-        </section>
+        </section> */}
 
         <main className={styles.main}>
-          <div className={styles.dropDowns}>
+          {/* <div className={styles.dropDowns}>
             <div
               className={styles.dropDownButton}
               onClick={() => dropdownHandler("all-cup")}
@@ -109,12 +94,12 @@ export default function Livescores() {
             >
               <Calendar />
             </div>
-          </div>
+          </div> */}
 
           <LiveScores data={data} message={message} succeeded={succeeded} />
         </main>
 
-        <div className={styles.aside}>
+        {/* <div className={styles.aside}>
           <Wrapper noBackground gap={30}>
             <>
               <div className={styles.calendar}>
@@ -126,7 +111,7 @@ export default function Livescores() {
               </div>
             </>
           </Wrapper>
-        </div>
+        </div> */}
       </div>
     </div>
   );

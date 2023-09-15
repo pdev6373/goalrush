@@ -10,6 +10,8 @@
   flex-direction: column;
   gap: 15px;
   align-self: stretch;
+  max-width: 900px; /* remove */
+  margin-inline: auto; /* remove */
 }
 
 .main,

@@ -1,5 +1,24 @@
 import { ReactNode, CSSProperties } from "react";
 
+type MatchTimeType = {
+  initial: number;
+  max: number;
+  extra: number;
+  currentPeriodStartTimestamp: number;
+};
+
+type MatchStatusType = {
+  code: number;
+  description:
+    | "1st half"
+    | "2nd half"
+    | "Not started"
+    | "Postponed"
+    | "Ended"
+    | "Canceled"; // What of half time
+  type: "inprogress" | "notstarted" | "postponed" | "finished" | "canceled";
+};
+
 export type LayoutType = {
   children: ReactNode;
 };
@@ -44,27 +63,75 @@ export type WrapperType = {
   center?: boolean;
 };
 
+// type LiveScoreDetailsType = {
+//   stageId: string;
+//   stageName: string;
+//   stageRoute: string;
+//   competitionName: string;
+//   competitionRoute: string;
+//   time: string;
+// };
+
 type LiveScoreDetailsType = {
-  stageId: string;
-  stageName: string;
-  stageRoute: string;
+  // stageId: string;
+  // stageName: string;
+  // stageRoute: string;
+  // competitionName: string;
+  // competitionRoute: string;
+  // time: string;
+
+  // tournamentId: string;
+  // tournamentRoute: string;
+  tournamentName: string;
+  time: MatchTimeType;
+  // competitionId: string;
+  // competitionRoute: string;
   competitionName: string;
-  competitionRoute: string;
-  time: string;
 };
+
+// type LiveScoreTeamDetailsType = {
+//   id: string;
+//   name: string;
+//   score: number;
+//   logo: string;
+// };
 
 type LiveScoreTeamDetailsType = {
+  // score: number;
   id: string;
+  route: string;
   name: string;
-  score: number;
+  shortName: string;
+  colors: object;
+  code: string;
   logo: string;
+  score: string | undefined;
 };
 
+// type LiveScoreEventType = {
+//   eventId: string;
+//   isLive: boolean;
+//   winningTeam: "home" | "away" | "none";
+//   time: string;
+//   startTime: number;
+//   homeTeam: LiveScoreTeamDetailsType;
+//   awayTeam: LiveScoreTeamDetailsType;
+// };
+
 type LiveScoreEventType = {
-  eventId: string;
-  isLive: boolean;
-  winningTeam: "home" | "away" | "none";
-  time: string;
+  // eventId: string;
+  // isLive: boolean;
+  // winningTeam: "home" | "away" | "none";
+  // time: string;
+  // startTime: number;
+  // homeTeam: LiveScoreTeamDetailsType;
+  // awayTeam: LiveScoreTeamDetailsType;
+
+  id: string;
+  route: string;
+  time: MatchTimeType;
+  startTime: number;
+  status: MatchStatusType;
   homeTeam: LiveScoreTeamDetailsType;
   awayTeam: LiveScoreTeamDetailsType;
 };
