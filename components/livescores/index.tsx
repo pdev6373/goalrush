@@ -1,8 +1,8 @@
 import { Text, Wrapper } from "..";
 import { format, differenceInMinutes } from "date-fns";
 import { LiveScoresWithDateType, MatchStatusTypeType } from "@/types";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./index.module.css";
 
 export default function LiveScores({
