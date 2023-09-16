@@ -10,8 +10,6 @@
   flex-direction: column;
   gap: 15px;
   align-self: stretch;
-  max-width: 900px; /* remove */
-  margin-inline: auto; /* remove */
 }
 
 .main,
@@ -121,7 +119,7 @@
     min-width: 310px;
     position: sticky;
     top: 101px;
-    height: fit-content;
+    height: min-content;
   }
 
   .wrapper {
@@ -161,7 +159,7 @@
     flex: 25.85;
     position: sticky;
     top: 101px;
-    height: fit-content;
+    height: min-content;
     max-height: calc(100vh - 131px);
     overflow-y: auto;
     border-radius: var(--main-border-radius);

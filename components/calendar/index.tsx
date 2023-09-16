@@ -1,21 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar as CalendarComponent } from "react-calendar";
 import { Wrapper } from "..";
 import styles from "./index.module.css";
 import Image from "next/image";
+import { CalendarType } from "@/types";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-export default function Calendar() {
+export default function Calendar({ setValue }: CalendarType) {
   const [value, onChange] = useState<Value>(new Date());
+
+  useEffect(() => {
+    setValue(value);
+  }, [value]);
 
   return (
     <Wrapper>
       <CalendarComponent
         onChange={onChange}
-        onClickDay={(value) => console.log("Clicked day: ", value)}
+        // onClickDay={(value) => console.log("Clicked day: ", value)}
         value={value}
         className={styles.calendar}
         tileClassName={styles.tile}

@@ -19,26 +19,40 @@
   margin-top: auto;
 }
 
-.matchTime {
+.matchTime,
+.matchTimeMobile {
+  display: none;
   background: var(--secondary-background);
   border-radius: var(--main-border-radius-300);
-  padding: 3px 9px;
+  padding: 4px;
+  min-width: 56px;
 }
 
-.live,
-.fulltime {
+.matchTimeMobile {
+  display: grid;
+  place-content: center;
+}
+
+.live {
   display: none;
+}
+
+.notLive {
+  display: grid;
+  place-content: center;
+  width: 52px;
+  padding: 4px;
+  border-radius: var(--main-border-radius-300);
+  background: var(--main-background-200);
 }
 
 .matchDetails {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
   border-bottom: var(--main-border);
   padding: 14px 10px;
-  gap: 10px;
-  flex-wrap: wrap;
 }
 
 .matchScores,
@@ -72,33 +86,22 @@
   flex: 1;
 }
 
-.teamLogoWeb,
-.teamLogoMobile {
-  /* border-radius: 50%; */
-  /* overflow: hidden; */
-}
-
 .teamLogoWeb {
   display: none;
 }
 
-.teamLogoMobile {
+.teamLogoMobile,
+.teamLogoWeb {
   order: -1;
-}
-
-@media (min-width: 300px) {
-  .matchDetails {
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
-  }
 }
 
 @media (min-width: 330px) {
   .noData {
     height: calc(100vh - 163px);
   }
+}
 
+@media (min-width: 350px) {
   .leagueHeader {
     flex-direction: row;
     align-items: center;
@@ -107,42 +110,17 @@
 
 @media (min-width: 375px) {
   .noData {
-    height: calc(100vh - 183px);
-  }
-
-  .matchTeams {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .matchScoresMobile {
-    display: none;
-  }
-
-  .matchScores {
-    display: block;
-  }
-
-  .teamLogoMobile {
-    order: 0;
-  }
-
-  .teamName {
-    margin-left: auto;
+    height: calc(100vh - 173px);
   }
 }
 
 @media (min-width: 500px) {
   .noData {
-    height: calc(100vh - 203px);
+    height: calc(100vh - 198px);
   }
 
   .leagueHeader {
     padding-inline: 20px;
-  }
-
-  .matchTime {
-    padding: 4px 12px;
   }
 
   .matchDetails {
@@ -173,32 +151,54 @@
   }
 }
 
-@media (min-width: 600px) {
-  .live,
-  .fulltime {
-    display: block;
-  }
-
-  .live {
-    padding: 4px 8px;
-    border-radius: var(--main-border-radius-300);
-    background: var(--alert-color-300);
-  }
-
-  .fulltime {
-    padding: 4px 18px;
-    border-radius: var(--main-border-radius-300);
-    background: var(--main-background-200);
-  }
-
-  .matchTeams {
-    /* flex-grow: 0; */
-    /* justify-content: center; */
-  }
-}
-
 @media (min-width: 1300px) {
   .noData {
     height: calc(100vh - 131px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .matchTeams {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .teamName {
+    margin-left: auto;
+  }
+
+  .matchScoresMobile {
+    display: none;
+  }
+
+  .matchScores {
+    display: block;
+  }
+
+  .teamLogoWeb {
+    order: 0;
+  }
+
+  .matchTime {
+    display: grid;
+    place-content: center;
+  }
+
+  .matchTimeMobile {
+    display: none;
+  }
+
+  .noMatchTime {
+    background: transparent;
+    align-self: stretch;
+  }
+
+  .live {
+    display: grid;
+    place-content: center;
+    width: 52px;
+    padding: 4px;
+    border-radius: var(--main-border-radius-300);
+    background: var(--alert-color-300);
   }
 }

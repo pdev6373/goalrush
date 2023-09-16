@@ -9,23 +9,23 @@ const Nav: NavType[] = [
     name: "All Match",
     route: "/all-match",
   },
-  {
-    name: "Video",
-    route: "/video",
-  },
-  {
-    name: "News",
-    routes: [
-      {
-        name: "Latest News",
-        route: "/latest-news",
-      },
-      {
-        name: "Transfers",
-        route: "/transfers",
-      },
-    ],
-  },
+  // {
+  //   name: "Video",
+  //   route: "/video",
+  // },
+  // {
+  //   name: "News",
+  //   routes: [
+  //     {
+  //       name: "Latest News",
+  //       route: "/latest-news",
+  //     },
+  //     {
+  //       name: "Transfers",
+  //       route: "/transfers",
+  //     },
+  //   ],
+  // },
   // {
   //   name: "Stats",
   //   route: "/stats",

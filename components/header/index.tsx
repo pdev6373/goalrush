@@ -19,8 +19,8 @@ export default function Header() {
         />
       </div>
 
-      {/* <Nav />
-      <Profile /> */}
+      <Nav />
+      <Profile />
     </header>
   );
 }

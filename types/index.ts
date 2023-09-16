@@ -7,16 +7,26 @@ type MatchTimeType = {
   currentPeriodStartTimestamp: number;
 };
 
+export type MatchStatusTypeType =
+  | "inprogress"
+  | "notstarted"
+  | "postponed"
+  | "finished"
+  | "canceled";
+
+export type MatchStatusDescriptionType =
+  | "1st half"
+  | "2nd half"
+  | "Halftime"
+  | "Not started"
+  | "Postponed"
+  | "Ended"
+  | "Canceled";
+
 type MatchStatusType = {
   code: number;
-  description:
-    | "1st half"
-    | "2nd half"
-    | "Not started"
-    | "Postponed"
-    | "Ended"
-    | "Canceled"; // What of half time
-  type: "inprogress" | "notstarted" | "postponed" | "finished" | "canceled";
+  description: MatchStatusDescriptionType;
+  type: MatchStatusTypeType;
 };
 
 export type LayoutType = {
@@ -83,10 +93,12 @@ type LiveScoreDetailsType = {
   // tournamentId: string;
   // tournamentRoute: string;
   tournamentName: string;
+  tournamentSlug: string;
   time: MatchTimeType;
   // competitionId: string;
   // competitionRoute: string;
   competitionName: string;
+  competitionSlug: string;
 };
 
 // type LiveScoreTeamDetailsType = {
@@ -145,6 +157,13 @@ export type LiveScoresType = {
   succeeded: boolean;
   message: string;
   data: AllLiveScoresType[];
+};
+
+export type LiveScoresWithDateType = {
+  succeeded: boolean;
+  message: string;
+  data: AllLiveScoresType[];
+  date: Date;
 };
 
 export type NewsType = {
@@ -233,4 +252,22 @@ export type FetchType = {
   url: string;
   method?: "GET" | "POST";
   payload?: object;
+};
+
+export type CalendarType = {
+  setValue: any;
+};
+
+export type TournamentCategoriesType = {
+  name: string;
+  slug: string;
+  priority: number;
+  id: number;
+  flag: string;
+};
+
+export type LivescoresTournamentType = {
+  params: {
+    tournament: string;
+  };
 };

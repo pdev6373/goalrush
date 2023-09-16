@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import {
   Calendar,
   Leagues,
@@ -8,10 +8,20 @@ import {
   Wrapper,
   DropDownButton,
 } from "@/components";
-import { HomeTypes, LiveScoresType } from "@/types";
-import styles from "./page.module.css";
+import {
+  HomeTypes,
+  LiveScoresType,
+  LayoutType,
+  LiveScoresWithDateType,
+} from "@/types";
+import styles from "./layout.module.css";
 
-export default function Livescores() {
+export const PageContext = createContext({} as LiveScoresWithDateType);
+
+export default function Transfersayout({ children }: LayoutType) {
+  const [calendarValue, setCalendarValue] = useState<Date>(new Date());
+  const [currentDropDownToShow, setCurrentDropDownToShow] =
+    useState<HomeTypes>(null);
   const [livescores, setLivescores] = useState<LiveScoresType>({
     data: [],
     message: "",
@@ -19,32 +29,19 @@ export default function Livescores() {
   });
 
   useEffect(() => {
-    // const socketProtocol =
-    //   window.location.protocol === "https:" ? "wss:" : "ws:";
-    // const livescoresSocketUrl =
-    //   socketProtocol + "//" + window.location.hostname + ":443" + "/livescores";
-    // const socket = new WebSocket(livescoresSocketUrl);
     const socket = new WebSocket(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT_WS}/livescores`
     );
 
     socket.onopen = () => socket.send("");
-
     socket.onmessage = (e: any) => {
-      console.log(JSON.parse(e?.data));
-
       setLivescores(JSON.parse(e?.data));
     };
   }, []);
 
-  const [currentDropDownToShow, setCurrentDropDownToShow] =
-    useState<HomeTypes>(null);
-
+  const closeDropDown = () => setCurrentDropDownToShow(null);
   const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
-  const closeDropDown = () => setCurrentDropDownToShow(null);
-
-  const { data, message, succeeded } = livescores;
 
   return (
     <div className="main-wrapper">
@@ -57,12 +54,12 @@ export default function Livescores() {
           onClick={closeDropDown}
         ></div>
 
-        {/* <section className={styles.allLeagues}>
+        <section className={styles.allLeagues}>
           <Leagues />
-        </section> */}
+        </section>
 
         <main className={styles.main}>
-          {/* <div className={styles.dropDowns}>
+          <div className={styles.dropDowns}>
             <div
               className={styles.dropDownButton}
               onClick={() => dropdownHandler("all-cup")}
@@ -92,18 +89,20 @@ export default function Livescores() {
                 currentDropDownToShow === "calendar" && styles.calendarDropDown,
               ].join(" ")}
             >
-              <Calendar />
+              <Calendar setValue={setCalendarValue} />
             </div>
-          </div> */}
+          </div>
 
-          <LiveScores data={data} message={message} succeeded={succeeded} />
+          <PageContext.Provider value={{ ...livescores, date: calendarValue }}>
+            {children}
+          </PageContext.Provider>
         </main>
 
-        {/* <div className={styles.aside}>
+        <div className={styles.aside}>
           <Wrapper noBackground gap={30}>
             <>
               <div className={styles.calendar}>
-                <Calendar />
+                <Calendar setValue={setCalendarValue} />
               </div>
 
               <div className={styles.newsPreview}>
@@ -111,7 +110,7 @@ export default function Livescores() {
               </div>
             </>
           </Wrapper>
-        </div> */}
+        </div>
       </div>
     </div>
   );
