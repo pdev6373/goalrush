@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LiveScores } from "@/components";
 import { PageContext } from "../../layout";
 import { LivescoresTournamentType } from "@/types";
-import { LivescoresContext } from "@/app/context";
+import { LivescoresContext } from "@/context/livescores";
 
 export default function Livescores({
   params: { tournament },

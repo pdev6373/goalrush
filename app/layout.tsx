@@ -1,10 +1,11 @@
-import { Header } from "@/components";
-import "./globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import styles from "./layout.module.css";
+import { Header } from "@/components";
 import { LayoutType } from "@/types";
-import LivescoresProvider from "./context";
+import localFont from "next/font/local";
+import LivescoresProvider from "@/context/livescores";
+import GlobalProvider from "@/context/global";
+import styles from "./layout.module.css";
+import "./globals.css";
 
 const segoeui = localFont({
   src: [
@@ -40,7 +41,9 @@ export default function RootLayout({ children }: LayoutType) {
           <Header />
         </div>
 
-        <LivescoresProvider>{children}</LivescoresProvider>
+        <GlobalProvider>
+          <LivescoresProvider>{children}</LivescoresProvider>
+        </GlobalProvider>
       </body>
     </html>
   );

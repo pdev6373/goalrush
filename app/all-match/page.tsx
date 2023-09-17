@@ -1,6 +1,6 @@
 "use client";
 import { useState, useContext } from "react";
-import { LivescoresContext } from "../context";
+import { LivescoresContext } from "../../context/livescores";
 import { Calendar, LiveScores, DropDownButton } from "@/components";
 import styles from "./page.module.css";
 

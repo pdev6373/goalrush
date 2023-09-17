@@ -8,6 +8,7 @@
   z-index: 2;
   background: var(--main-background-300);
   margin-bottom: 6px;
+  display: block;
 }
 
 .league {
@@ -21,8 +22,31 @@
   background-color: var(--main-background-300);
 }
 
+.league > p {
+  transition: color 0.15s ease-in;
+}
+
 .league:hover {
   background-color: var(--main-background-500);
+}
+
+.leagueCurrent,
+.leagueCurrent:hover {
+  background-color: var(--active-color);
+  position: relative;
+}
+
+.highlightIcon {
+  position: absolute;
+  left: -25px;
+  transform: rotate(90deg);
+  transition: opacity 0.15s ease-in;
+  opacity: 0;
+  display: none;
+}
+
+.highlightIconActive {
+  opacity: 1;
 }
 
 .allLeagues {
@@ -42,9 +66,13 @@
   .heading {
     margin-bottom: 10px;
   }
+
+  .highlightIcon {
+    display: block;
+  }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
   .allLeagues {
     padding-bottom: 33px;
   }

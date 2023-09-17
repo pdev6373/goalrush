@@ -1,51 +1,30 @@
 "use client";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { SectionHeading, Text, Wrapper } from "..";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
-import { TournamentCategoriesType } from "@/types";
-import { LivescoresContext } from "@/app/context";
+import { GlobalContext } from "@/context/global";
+import { usePathname } from "next/navigation";
 
 export default function Leagues() {
-  const [competitions, setCompetitions] =
-    useState<TournamentCategoriesType[]>();
-  const { data, message } = useContext(LivescoresContext);
+  const { competitions } = useContext(GlobalContext);
+  const pathname = usePathname();
 
-  if (!data?.length) {
-    if (!message) return <p>Loading...</p>;
+  if (!competitions?.data?.length) {
+    if (!competitions?.message) return <p>Loading...</p>;
     else return <p>No profile data</p>;
   }
 
-  !competitions?.length &&
-    data.length &&
-    setCompetitions(
-      data
-        .map(
-          (tournament) =>
-            ({
-              name: tournament.details.competitionName,
-              slug: tournament.details.competitionSlug,
-              flag: "",
-            } as TournamentCategoriesType)
-        )
-        .filter(
-          (tournament, index, tournaments) =>
-            tournaments.findIndex((item) => item.name === tournament.name) ===
-            index
-        )
-    );
-
-  if (!competitions?.length) return <p>Loading...</p>;
-
-  console.log(competitions);
+  const isCurrentRoute = (route: string) =>
+    pathname.toLowerCase().includes(`/livescores/${route}`.toLowerCase());
 
   return (
     <div className={styles.wrapper}>
       <>
-        <div className={styles.heading}>
+        <Link href="/" className={styles.heading}>
           <SectionHeading>All Cup</SectionHeading>
-        </div>
+        </Link>
 
         <Wrapper
           noBackground
@@ -54,10 +33,13 @@ export default function Leagues() {
           extraStyles={{ paddingBlock: "0" }}
         >
           <div className={styles.allLeagues}>
-            {competitions.map((league) => (
+            {competitions.data.map((league: any) => (
               <Link
-                href={`/cup/${league.slug}`}
-                className={styles.league}
+                href={`/livescores/${league.slug}`}
+                className={[
+                  styles.league,
+                  isCurrentRoute(league.slug) && styles.leagueCurrent,
+                ].join(" ")}
                 key={league.name}
               >
                 {/* <Image
@@ -70,6 +52,17 @@ export default function Leagues() {
                 <Text sizeStatic={14} type="body" variation="main" weight="700">
                   {league.name}
                 </Text>
+
+                <Image
+                  src="/assets/nav-highlight.png"
+                  alt="highlight"
+                  width={18}
+                  height={14}
+                  className={[
+                    styles.highlightIcon,
+                    isCurrentRoute(league.slug) && styles.highlightIconActive,
+                  ].join(" ")}
+                />
               </Link>
             ))}
           </div>

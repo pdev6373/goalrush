@@ -5,7 +5,12 @@ import { Text } from "..";
 
 export default function DropDownButton({ currentValue }: DropDownButtonType) {
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={[
+        styles.wrapper,
+        currentValue.length <= 3 && styles.wrapperTextUpperCase,
+      ].join(" ")}
+    >
       <Text size={16} type="body" variation="main" weight="600">
         {currentValue}
       </Text>

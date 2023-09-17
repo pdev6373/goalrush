@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { LiveScores } from "@/components";
 import { PageContext } from "./layout";
-import { LivescoresContext } from "../context";
+import { LivescoresContext } from "../../context/livescores";
 
 export default function Livescores() {
   const date = useContext(PageContext);

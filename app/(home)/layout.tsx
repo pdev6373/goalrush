@@ -1,5 +1,5 @@
 "use client";
-import { useState, createContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import {
   Calendar,
   Leagues,
@@ -9,17 +9,42 @@ import {
 } from "@/components";
 import { HomeTypes, LayoutType } from "@/types";
 import styles from "./layout.module.css";
+import { GlobalContext } from "@/context/global";
+import { usePathname } from "next/navigation";
 
 export const PageContext = createContext({} as Date);
 
 export default function Transfersayout({ children }: LayoutType) {
+  const pathname = usePathname();
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
+  const { competitions } = useContext(GlobalContext);
+  const [currentTournament, setCurrentTournament] = useState(
+    currentTournamentHandler()
+  );
 
-  const closeDropDown = () => setCurrentDropDownToShow(null);
+  useEffect(() => {
+    closeDropDown();
+    setCurrentTournament(currentTournamentHandler());
+  }, [pathname, competitions.data]);
+
   const dropdownHandler = (current: HomeTypes) =>
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
+
+  function closeDropDown() {
+    setCurrentDropDownToShow(null);
+  }
+
+  function currentTournamentHandler() {
+    if (!pathname.includes("/livescores")) return "All Cup";
+
+    const pathNameArray = pathname.split("/");
+    const pathName = pathNameArray[pathNameArray.length - 1];
+    const updatedPathName = pathName.split("-").join(" ");
+
+    return updatedPathName;
+  }
 
   return (
     <div className="main-wrapper">
@@ -42,7 +67,7 @@ export default function Transfersayout({ children }: LayoutType) {
               className={styles.dropDownButton}
               onClick={() => dropdownHandler("all-cup")}
             >
-              <DropDownButton currentValue="All Cup" />
+              <DropDownButton currentValue={currentTournament} />
             </div>
 
             <div

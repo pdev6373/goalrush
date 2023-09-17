@@ -14,7 +14,7 @@ export default function Nav() {
     typeof route === "string"
       ? route.length > 1
         ? pathname.includes(route)
-        : pathname === route
+        : pathname === route || pathname.includes("/livescores")
       : route.some((route) => pathname.includes(route.route));
 
   const navHighlightHandler = (route: NavRouteType) => (
