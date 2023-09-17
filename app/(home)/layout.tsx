@@ -46,8 +46,8 @@ export default function Transfersayout({ children }: LayoutType) {
             </div>
 
             <div
-              onClick={() => dropdownHandler("calendar")}
               className={styles.dropDownButton}
+              onClick={() => dropdownHandler("calendar")}
             >
               <DropDownButton currentValue="May, 29" />
             </div>
