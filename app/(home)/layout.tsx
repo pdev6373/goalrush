@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, createContext } from "react";
+import { useState, createContext } from "react";
 import {
   Calendar,
   Leagues,
@@ -7,7 +7,7 @@ import {
   Wrapper,
   DropDownButton,
 } from "@/components";
-import { HomeTypes, LiveScoresType, LayoutType } from "@/types";
+import { HomeTypes, LayoutType } from "@/types";
 import styles from "./layout.module.css";
 
 export const PageContext = createContext({} as Date);
@@ -16,22 +16,6 @@ export default function Transfersayout({ children }: LayoutType) {
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
-  const [livescores, setLivescores] = useState<LiveScoresType>({
-    data: [],
-    message: "",
-    succeeded: false,
-  });
-
-  useEffect(() => {
-    const socket = new WebSocket(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT_WS}/livescores`
-    );
-
-    socket.onopen = () => socket.send("");
-    socket.onmessage = (e: any) => {
-      setLivescores(JSON.parse(e?.data));
-    };
-  }, []);
 
   const closeDropDown = () => setCurrentDropDownToShow(null);
   const dropdownHandler = (current: HomeTypes) =>
