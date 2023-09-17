@@ -1,33 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import { LivescoresContext } from "../context";
 import { Calendar, LiveScores, DropDownButton } from "@/components";
 import styles from "./page.module.css";
-import { LiveScoresType } from "@/types";
 
 export default function AllMatch() {
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
-  const [livescores, setLivescores] = useState<LiveScoresType>({
-    data: [],
-    message: "",
-    succeeded: false,
-  });
-
-  useEffect(() => {
-    const socket = new WebSocket(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/livescores`
-    );
-
-    socket.onopen = () => socket.send("");
-    socket.onmessage = (e: any) => {
-      setLivescores(JSON.parse(e?.data));
-    };
-  }, []);
+  const { data, message, succeeded } = useContext(LivescoresContext);
 
   const dropdownHandler = () => setShowCalendar((prev) => !prev);
   const calendarCloseHandler = () => setShowCalendar(false);
-
-  const { data, message, succeeded } = livescores;
 
   return (
     <div className="main-wrapper">

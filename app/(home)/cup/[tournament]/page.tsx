@@ -3,11 +3,13 @@ import { useContext } from "react";
 import { LiveScores } from "@/components";
 import { PageContext } from "../../layout";
 import { LivescoresTournamentType } from "@/types";
+import { LivescoresContext } from "@/app/context";
 
 export default function Livescores({
   params: { tournament },
 }: LivescoresTournamentType) {
-  const { data, date, message, succeeded } = useContext(PageContext);
+  const date = useContext(PageContext);
+  const { data, message, succeeded } = useContext(LivescoresContext);
 
   const updatedData = data.filter(
     (dataTournament) =>

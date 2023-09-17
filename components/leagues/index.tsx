@@ -1,41 +1,44 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useFetch } from "@/hooks";
-import { Leagues as AllLeagues } from "@/constants";
+import { useState, useContext } from "react";
 import { SectionHeading, Text, Wrapper } from "..";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
 import { TournamentCategoriesType } from "@/types";
+import { LivescoresContext } from "@/app/context";
 
 export default function Leagues() {
-  const [data, setData] = useState<TournamentCategoriesType[]>();
-  const [isLoading, setLoading] = useState(true);
+  const [competitions, setCompetitions] =
+    useState<TournamentCategoriesType[]>();
+  const { data, message, succeeded } = useContext(LivescoresContext);
 
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT_HTTP}/tournament-categries`, {
-      cache: "no-store",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.data);
-        setLoading(false);
-      });
-  }, []);
+  !competitions?.length &&
+    data.length &&
+    setCompetitions(
+      data
+        .map(
+          (tournament) =>
+            ({
+              name: tournament.details.competitionName,
+              slug: tournament.details.competitionSlug,
+              flag: "",
+            } as TournamentCategoriesType)
+        )
+        .filter(
+          (tournament, index, tournaments) =>
+            tournaments.findIndex((item) => item.name === tournament.name) ===
+            index
+        )
+    );
 
-  console.log(data);
+  if (!succeeded) {
+    if (!message) return <p>Loading...</p>;
+    else return <p>No profile data</p>;
+  }
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data?.length) return <p>No profile data</p>;
+  if (!competitions?.length) return <p>Loading...</p>;
 
-  // const { fetchData } = useFetch();
-  // const [leagues, setLeagues] = useState<TournamentCategoriesType>();
-
-  // const data = use(
-  //   fetchData({
-  //     url: `${process.env.NEXT_PUBLIC_API_ENDPOINT_HTTP}/tournament-categories`,
-  //   })
-  // );
+  console.log(competitions);
 
   return (
     <div className={styles.wrapper}>
@@ -51,7 +54,7 @@ export default function Leagues() {
           extraStyles={{ paddingBlock: "0" }}
         >
           <div className={styles.allLeagues}>
-            {data.map((league) => (
+            {competitions.map((league) => (
               <Link
                 href={`/cup/${league.slug}`}
                 className={styles.league}

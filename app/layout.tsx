@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import styles from "./layout.module.css";
 import { LayoutType } from "@/types";
+import LivescoresProvider from "./context";
 
 const segoeui = localFont({
   src: [
@@ -39,7 +40,7 @@ export default function RootLayout({ children }: LayoutType) {
           <Header />
         </div>
 
-        {children}
+        <LivescoresProvider>{children}</LivescoresProvider>
       </body>
     </html>
   );

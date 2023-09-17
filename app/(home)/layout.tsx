@@ -3,20 +3,14 @@ import { useEffect, useState, createContext } from "react";
 import {
   Calendar,
   Leagues,
-  LiveScores,
   NewsPreview,
   Wrapper,
   DropDownButton,
 } from "@/components";
-import {
-  HomeTypes,
-  LiveScoresType,
-  LayoutType,
-  LiveScoresWithDateType,
-} from "@/types";
+import { HomeTypes, LiveScoresType, LayoutType } from "@/types";
 import styles from "./layout.module.css";
 
-export const PageContext = createContext({} as LiveScoresWithDateType);
+export const PageContext = createContext({} as Date);
 
 export default function Transfersayout({ children }: LayoutType) {
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
@@ -93,7 +87,7 @@ export default function Transfersayout({ children }: LayoutType) {
             </div>
           </div>
 
-          <PageContext.Provider value={{ ...livescores, date: calendarValue }}>
+          <PageContext.Provider value={calendarValue}>
             {children}
           </PageContext.Provider>
         </main>

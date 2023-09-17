@@ -2,9 +2,12 @@
 import { useContext } from "react";
 import { LiveScores } from "@/components";
 import { PageContext } from "./layout";
+import { LivescoresContext } from "../context";
 
 export default function Livescores() {
-  const { data, date, message, succeeded } = useContext(PageContext);
+  const date = useContext(PageContext);
+  const { data, message, succeeded } = useContext(LivescoresContext);
+
   return (
     <LiveScores
       data={data}

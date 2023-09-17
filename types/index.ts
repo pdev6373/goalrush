@@ -53,12 +53,6 @@ export type NavType = {
   routes?: NavRoutesType[];
 };
 
-export type LeagueType = {
-  logo: string;
-  name: string;
-  route: string;
-};
-
 type WrapperSpacingType = 0 | 8 | 10 | 12 | 20 | 30;
 
 export type WrapperType = {
@@ -261,8 +255,6 @@ export type CalendarType = {
 export type TournamentCategoriesType = {
   name: string;
   slug: string;
-  priority: number;
-  id: number;
   flag: string;
 };
 
