@@ -10,7 +10,12 @@ import { LivescoresContext } from "@/app/context";
 export default function Leagues() {
   const [competitions, setCompetitions] =
     useState<TournamentCategoriesType[]>();
-  const { data, message, succeeded } = useContext(LivescoresContext);
+  const { data, message } = useContext(LivescoresContext);
+
+  if (!data?.length) {
+    if (!message) return <p>Loading...</p>;
+    else return <p>No profile data</p>;
+  }
 
   !competitions?.length &&
     data.length &&
@@ -30,11 +35,6 @@ export default function Leagues() {
             index
         )
     );
-
-  if (!succeeded) {
-    if (!message) return <p>Loading...</p>;
-    else return <p>No profile data</p>;
-  }
 
   if (!competitions?.length) return <p>Loading...</p>;
 

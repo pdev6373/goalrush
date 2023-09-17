@@ -34,10 +34,10 @@ export default function LiveScores({
 
   const matchTime = (initialTimestamp: number, currentTimestamp: number) =>
     differenceInMinutes(
-      new Date(1694790991 * 1000),
-      new Date(1694790016 * 1000)
-      // new Date(1694790016 * 1000),
-      // new Date(1694790000 * 1000)
+      // new Date(1694790991 * 1000),
+      // new Date(1694790016 * 1000)
+      new Date(1694790016 * 1000),
+      new Date(1694790000 * 1000)
       // new Date(1694790991 * 1000),
       // new Date(1694790000 * 1000)
 
