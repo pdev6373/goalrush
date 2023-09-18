@@ -30,6 +30,7 @@ export default function Transfersayout({ children }: LayoutType) {
   }, [pathname, competitions.data]);
 
   const dropdownHandler = (current: HomeTypes) =>
+    competitions?.data?.length &&
     setCurrentDropDownToShow((prev) => (prev === current ? null : current));
 
   function closeDropDown() {

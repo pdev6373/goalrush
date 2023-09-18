@@ -12,7 +12,12 @@ export default function Leagues() {
   const pathname = usePathname();
 
   if (!competitions?.data?.length) {
-    if (!competitions?.message) return <p>Loading...</p>;
+    if (!competitions?.message)
+      return (
+        <Wrapper center padding={30}>
+          <Image src="/loading.gif" alt="loading gif" width={60} height={60} />
+        </Wrapper>
+      );
     else return <p>No profile data</p>;
   }
 

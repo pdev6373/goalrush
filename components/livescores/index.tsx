@@ -32,17 +32,29 @@ export default function LiveScores({
     }
   };
 
-  const matchTime = (initialTimestamp: number, currentTimestamp: number) =>
-    differenceInMinutes(
-      // new Date(1694790991 * 1000),
-      // new Date(1694790016 * 1000)
-      new Date(1694790016 * 1000),
-      new Date(1694790000 * 1000)
-      // new Date(1694790991 * 1000),
-      // new Date(1694790000 * 1000)
+  const matchTime = (
+    initialTimestamp: number,
+    currentTimestamp: number,
+    timeChange: number
+  ) =>
+    // differenceInMinutes(
+    //   new Date(1695002285 * 1000),
+    //   new Date(1694997000 * 1000)
+    //   // new Date(1694790016 * 1000),
+    //   // new Date(1694790000 * 1000)
+    //   // // new Date(1694790991 * 1000),
+    //   // // new Date(1694790000 * 1000)
 
-      // new Date(currentTimestamp * 1000),
-      // new Date(initialTimestamp * 1000)
+    //   // new Date(currentTimestamp * 1000),
+    //   // new Date(initialTimestamp * 1000)
+    // ).toString();
+
+    // differenceInMinutes(
+    differenceInMinutes(
+      new Date(currentTimestamp * 1000),
+      new Date(initialTimestamp * 1000)
+      // )
+      // new Date(0 * 1000)
     ).toString();
 
   const startTime = (timestamp: number) =>
@@ -111,7 +123,8 @@ export default function LiveScores({
                             ? "HT"
                             : matchTime(
                                 event.startTime,
-                                event.time.currentPeriodStartTimestamp
+                                event.time.currentPeriodStartTimestamp,
+                                event.changeTime
                               )}
                         </Text>
                       </div>
@@ -241,6 +254,7 @@ export default function LiveScores({
                           ? "HT"
                           : matchTime(
                               event.startTime,
+                              event.time.currentPeriodStartTimestamp,
                               event.time.currentPeriodStartTimestamp
                             )}
                       </Text>

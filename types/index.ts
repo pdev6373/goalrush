@@ -138,6 +138,7 @@ type LiveScoreEventType = {
   route: string;
   time: MatchTimeType;
   startTime: number;
+  changeTime: number;
   status: MatchStatusType;
   homeTeam: LiveScoreTeamDetailsType;
   awayTeam: LiveScoreTeamDetailsType;

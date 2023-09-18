@@ -51,6 +51,8 @@ body {
   background: var(--main-background);
   color: var(--main-color);
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -79,6 +81,12 @@ button {
 
 .main-wrapper-no-inline-padding {
   padding: 15px 0 30px;
+}
+
+.not-found-wrapper {
+  height: 100%;
+  display: grid;
+  place-content: center;
 }
 
 .react-calendar__navigation {
