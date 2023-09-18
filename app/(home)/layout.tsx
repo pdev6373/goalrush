@@ -13,11 +13,11 @@ import { GlobalContext } from "@/context/global";
 import { usePathname } from "next/navigation";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Terms of Service - Stackbuld",
-  description:
-    "We harness the boundless power of technology and innovation and elevate your business performance. Your Vision brought to life by Our Expertise.",
-};
+// export const metadata: Metadata = {
+//   title: "Terms of Service - Stackbuld",
+//   description:
+//     "We harness the boundless power of technology and innovation and elevate your business performance. Your Vision brought to life by Our Expertise.",
+// };
 
 export const PageContext = createContext({} as Date);
 

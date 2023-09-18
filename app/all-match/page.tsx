@@ -5,11 +5,11 @@ import { Calendar, LiveScores, DropDownButton } from "@/components";
 import styles from "./page.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "All Match - Goalrush",
-  description:
-    "We harness the boundless power of technology and innovation and elevate your business performance. Your Vision brought to life by Our Expertise.",
-};
+// export const metadata: Metadata = {
+//   title: "All Match - Goalrush",
+//   description:
+//     "We harness the boundless power of technology and innovation and elevate your business performance. Your Vision brought to life by Our Expertise.",
+// };
 
 export default function AllMatch() {
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
