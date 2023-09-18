@@ -1,18 +1,18 @@
 "use client";
 import { useContext } from "react";
 import { LiveScores } from "@/components";
-import { PageContext } from "../../layout";
 import { LivescoresTournamentType } from "@/types";
 import { LivescoresContext } from "@/context/livescores";
+import { GlobalContext } from "@/context/global";
 
 export default function Livescores({
   params: { tournament },
 }: LivescoresTournamentType) {
-  const date = useContext(PageContext);
   const {
     livescores: { data, message, succeeded },
     loadingLivescores,
   } = useContext(LivescoresContext);
+  const { calendarValue } = useContext(GlobalContext);
 
   const updatedData = data.filter(
     (dataTournament) =>
@@ -25,7 +25,7 @@ export default function Livescores({
       data={updatedData}
       message={message}
       succeeded={succeeded}
-      date={date}
+      date={calendarValue}
       loading={loadingLivescores}
     />
   );

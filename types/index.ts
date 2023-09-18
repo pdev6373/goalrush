@@ -251,8 +251,11 @@ export type FetchType = {
   payload?: object;
 };
 
+type ValuePiece = Date | null;
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 export type CalendarType = {
-  setValue: any;
+  value: Value;
+  onChange: any;
 };
 
 export type TournamentCategoriesType = {

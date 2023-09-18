@@ -1,11 +1,11 @@
 "use client";
 import { useContext } from "react";
 import { LiveScores } from "@/components";
-import { PageContext } from "../layout";
+import { GlobalContext } from "@/context/global";
 import { LivescoresContext } from "../../../context/livescores";
 
 export default function Livescores() {
-  const date = useContext(PageContext);
+  const { calendarValue } = useContext(GlobalContext);
   const {
     livescores: { data, message, succeeded },
     loadingLivescores,
@@ -16,7 +16,7 @@ export default function Livescores() {
       data={data}
       message={message}
       succeeded={succeeded}
-      date={date}
+      date={calendarValue}
       loading={loadingLivescores}
     />
   );

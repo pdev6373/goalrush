@@ -2,18 +2,14 @@
 import { useState, useEffect } from "react";
 import { Calendar as CalendarComponent } from "react-calendar";
 import { Wrapper } from "..";
-import styles from "./index.module.css";
-import Image from "next/image";
 import { CalendarType } from "@/types";
+import Image from "next/image";
+import styles from "./index.module.css";
 
-type ValuePiece = Date | null;
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-
-export default function Calendar({ setValue }: CalendarType) {
-  const [value, onChange] = useState<Value>(new Date());
-
+export default function Calendar({ value, onChange }: CalendarType) {
   useEffect(() => {
-    setValue(value);
+    // setValue(value);
+    console.log(value);
   }, [value]);
 
   return (

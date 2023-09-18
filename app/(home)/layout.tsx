@@ -1,5 +1,5 @@
 "use client";
-import { useState, createContext, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   Calendar,
   Leagues,
@@ -7,19 +7,18 @@ import {
   Wrapper,
   DropDownButton,
 } from "@/components";
-import { HomeTypes, LayoutType } from "@/types";
-import styles from "./layout.module.css";
-import { GlobalContext } from "@/context/global";
 import { usePathname } from "next/navigation";
-
-export const PageContext = createContext({} as Date);
+import { HomeTypes, LayoutType } from "@/types";
+import { GlobalContext } from "@/context/global";
+import styles from "./layout.module.css";
 
 export default function Transfersayout({ children }: LayoutType) {
   const pathname = usePathname();
-  const [calendarValue, setCalendarValue] = useState<Date>(new Date());
+
   const [currentDropDownToShow, setCurrentDropDownToShow] =
     useState<HomeTypes>(null);
-  const { competitions } = useContext(GlobalContext);
+  const { competitions, calendarValue, setCalendarValue } =
+    useContext(GlobalContext);
   const [currentTournament, setCurrentTournament] = useState(
     currentTournamentHandler()
   );
@@ -93,20 +92,18 @@ export default function Transfersayout({ children }: LayoutType) {
                 currentDropDownToShow === "calendar" && styles.calendarDropDown,
               ].join(" ")}
             >
-              <Calendar setValue={setCalendarValue} />
+              <Calendar onChange={setCalendarValue} value={calendarValue} />
             </div>
           </div>
 
-          <PageContext.Provider value={calendarValue}>
-            {children}
-          </PageContext.Provider>
+          {children}
         </main>
 
         <div className={styles.aside}>
           <Wrapper noBackground gap={30}>
             <>
               <div className={styles.calendar}>
-                <Calendar setValue={setCalendarValue} />
+                <Calendar onChange={setCalendarValue} value={calendarValue} />
               </div>
 
               <div className={styles.newsPreview}>
