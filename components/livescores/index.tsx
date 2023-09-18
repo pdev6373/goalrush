@@ -67,7 +67,7 @@ export default function LiveScores({
           {!message ? (
             <Image
               src="/loader.gif"
-              alt="home team logo"
+              alt="loading gif"
               width={150}
               height={150}
             />
