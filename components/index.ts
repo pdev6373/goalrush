@@ -11,3 +11,4 @@ export { default as DropDownButton } from "./dropDownButton";
 export { default as Text } from "./text";
 export { default as Videos } from "./videos";
 export { default as PlayerCard } from "./playerCard";
+export { default as AllMatch } from "./allMatch";

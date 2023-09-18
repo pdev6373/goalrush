@@ -54,17 +54,19 @@ export const metadata: Metadata = {
     "news",
   ],
   openGraph: {
-    title: "Goalrush: Where Football Livescores Come Alive!",
+    title:
+      "GoalRush - Your Ultimate Destination for Real-time Football Scores, News, Transfers, Stats, Videos, and Rankings!",
     description:
-      "Stay in the know with Goalrush - Your go-to destination for real-time football livescores, match updates, and all the action from the pitch!",
+      "Experience the thrill of football like never before with GoalRush! Stay updated with live scores, immerse yourself in the latest football news, track transfers, explore player and club stats, enjoy captivating football videos, and dive into team rankings. The heart of football, all in one place. Join us now!",
     images: "http://goal-rush.vercel.app/og-image.png",
     type: "website",
     url: "https://goalrush.vercel.app/",
   },
   twitter: {
-    title: "Goalrush: Where Football Livescores Come Alive!",
+    title:
+      "GoalRush - Your Ultimate Destination for Real-time Football Scores, News, Transfers, Stats, Videos, and Rankings!",
     description:
-      "Stay in the know with Goalrush - Your go-to destination for real-time football livescores, match updates, and all the action from the pitch!",
+      "Experience the thrill of football like never before with GoalRush! Stay updated with live scores, immerse yourself in the latest football news, track transfers, explore player and club stats, enjoy captivating football videos, and dive into team rankings. The heart of football, all in one place. Join us now!",
     images: "http://goal-rush.vercel.app/og-image.png",
     card: "summary_large_image",
     // site: "@goalrush",
