@@ -1,7 +1,7 @@
-import { PlayerCardType } from "@/types";
-import styles from "./index.module.css";
 import Image from "next/image";
+import { PlayerCardType } from "@/types";
 import { Text } from "..";
+import styles from "./index.module.css";
 
 export default function PlayerCard({ id, type, body }: PlayerCardType) {
   return type === "transfer" ? (
