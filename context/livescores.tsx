@@ -9,22 +9,37 @@ const initialLivescores = {
   succeeded: false,
 };
 
-export const LivescoresContext =
-  createContext<LiveScoresType>(initialLivescores);
+type LiveScoresContextType = {
+  livescores: LiveScoresType;
+  loadingLivescores: boolean;
+};
+
+export const LivescoresContext = createContext<LiveScoresContextType>({
+  livescores: initialLivescores,
+  loadingLivescores: true,
+});
 
 export default function LivescoresProvider({ children }: LayoutType) {
   const [livescores, setLivescores] =
     useState<LiveScoresType>(initialLivescores);
   const { competitions, setCompetitions } = useContext(GlobalContext);
+  const [loadingLivescores, setLoadingLivescores] = useState(true);
 
   useEffect(() => {
     const socket = new WebSocket(
       `${process.env.NEXT_PUBLIC_API_ENDPOINT_WS}/livescores`
     );
 
+    socket.onerror = (e) => {
+      if (e.type === "error") {
+        setLoadingLivescores(false);
+      }
+    };
+
     socket.onopen = () => socket.send("");
     socket.onmessage = (e: any) => {
       setLivescores(JSON.parse(e?.data));
+      setLoadingLivescores(false);
     };
   }, []);
 
@@ -50,7 +65,12 @@ export default function LivescoresProvider({ children }: LayoutType) {
     });
 
   return (
-    <LivescoresContext.Provider value={livescores}>
+    <LivescoresContext.Provider
+      value={{
+        livescores,
+        loadingLivescores,
+      }}
+    >
       {children}
     </LivescoresContext.Provider>
   );

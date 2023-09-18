@@ -10,6 +10,7 @@ export default function LiveScores({
   message,
   succeeded,
   date,
+  loading,
 }: LiveScoresWithDateType) {
   // const livescoreDate = format(new Date(date), "yyyy-MM-dd");
   const livescoreDate = format(new Date(date), "dd/MM/yyyy");
@@ -60,20 +61,42 @@ export default function LiveScores({
   const startTime = (timestamp: number) =>
     format(new Date(timestamp * 1000), "HH:mm");
 
-  if (!succeeded)
+  if (loading)
     return (
       <div className={styles.noData}>
         <Wrapper padding={20} gap={20} extraStyles={extraStyles.wrapper}>
-          {!message ? (
+          <Image src="/loader.gif" alt="loading gif" width={150} height={150} />
+        </Wrapper>
+      </div>
+    );
+
+  if (!succeeded && !data?.length)
+    return (
+      <div className={styles.noData}>
+        <Wrapper padding={20} gap={20} extraStyles={extraStyles.wrapper}>
+          <>
             <Image
-              src="/loader.gif"
+              src="/500.gif"
+              alt="loading gif"
+              width={400}
+              height={300}
+              className={styles.error500Large}
+            />
+            <Image
+              src="/500.gif"
+              alt="loading gif"
+              width={250}
+              height={187.5}
+              className={styles.error500Medium}
+            />
+            <Image
+              src="/500.gif"
               alt="loading gif"
               width={150}
-              height={150}
+              height={112.5}
+              className={styles.error500Small}
             />
-          ) : (
-            <p>Oops!, An Error Occurred</p>
-          )}
+          </>
         </Wrapper>
       </div>
     );

@@ -159,6 +159,7 @@ export type LiveScoresWithDateType = {
   succeeded: boolean;
   message: string;
   data: AllLiveScoresType[];
+  loading: boolean;
   date: Date;
 };
 

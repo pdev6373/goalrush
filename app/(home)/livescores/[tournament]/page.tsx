@@ -9,7 +9,10 @@ export default function Livescores({
   params: { tournament },
 }: LivescoresTournamentType) {
   const date = useContext(PageContext);
-  const { data, message, succeeded } = useContext(LivescoresContext);
+  const {
+    livescores: { data, message, succeeded },
+    loadingLivescores,
+  } = useContext(LivescoresContext);
 
   const updatedData = data.filter(
     (dataTournament) =>
@@ -23,6 +26,7 @@ export default function Livescores({
       message={message}
       succeeded={succeeded}
       date={date}
+      loading={loadingLivescores}
     />
   );
 }

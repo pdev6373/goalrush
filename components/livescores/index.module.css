@@ -94,6 +94,11 @@
   order: -1;
 }
 
+.error500Large,
+.error500Medium {
+  display: none;
+}
+
 @media (min-width: 330px) {
   .noData {
     height: calc(100vh - 223px);
@@ -106,6 +111,15 @@
 
   .matchTeams {
     margin-inline: auto;
+  }
+
+  .error500Small,
+  .error500Large {
+    display: none;
+  }
+
+  .error500Medium {
+    display: block;
   }
 }
 
@@ -157,6 +171,15 @@
 
   .teamLogoMobile {
     display: none;
+  }
+
+  .error500Small,
+  .error500Medium {
+    display: none;
+  }
+
+  .error500Large {
+    display: block;
   }
 }
 
