@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Goalrush - Your Ultimate Destination for Real-time Football Scores, News, Transfers, Stats, Videos, and Rankings!",
+      "Goalrush Your Ultimate Destination for Real-time Football Scores, News, Transfers, Stats, Videos, and Rankings!",
     description:
       "Experience the thrill of football like never before with Goalrush! Stay updated with live scores, immerse yourself in the latest football news, track transfers, explore player and club stats, enjoy captivating football videos, and dive into team rankings. The heart of football, all in one place. Join us now!",
     images: "http://goal-rush.vercel.app/og-image.png",
