@@ -25,10 +25,10 @@
   background: var(--secondary-background);
   border-radius: var(--main-border-radius-300);
   padding: 4px;
-  min-width: 56px;
 }
 
 .matchTimeMobile {
+  width: 52px;
   display: grid;
   place-content: center;
 }
@@ -49,10 +49,10 @@
 .matchDetails {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 15px;
   border-bottom: var(--main-border);
   padding: 14px 10px;
+  flex-direction: column;
 }
 
 .matchScores,
@@ -76,7 +76,6 @@
   flex-direction: column;
   gap: 4px;
   flex-grow: 1;
-  margin-inline: auto;
 }
 
 .teamWrapper {
@@ -98,6 +97,15 @@
 @media (min-width: 330px) {
   .noData {
     height: calc(100vh - 163px);
+  }
+
+  .matchDetails {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .matchTeams {
+    margin-inline: auto;
   }
 }
 
@@ -128,7 +136,8 @@
     gap: 20px;
   }
 
-  .matchScores {
+  .matchScores,
+  .matchScoresMobile {
     font-size: 14px;
     line-height: 20px;
     padding-inline: 9.7px;
@@ -180,6 +189,7 @@
   }
 
   .matchTime {
+    width: 56px;
     display: grid;
     place-content: center;
   }

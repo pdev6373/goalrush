@@ -53,6 +53,10 @@
   padding-bottom: 6px;
 }
 
+.competitionFlag {
+  display: none;
+}
+
 @media (min-width: 500px) {
   .allLeagues {
     padding-bottom: 10px;
@@ -69,6 +73,14 @@
 
   .highlightIcon {
     display: block;
+  }
+
+  .competitionFlag {
+    display: block;
+  }
+
+  .competitionFlagMobile {
+    display: none;
   }
 }
 

@@ -199,8 +199,8 @@ export default function LiveScores({
                             className={styles.teamLogoWeb}
                           />
                           <Image
-                            src={event.homeTeam.logo}
-                            alt="home team logo"
+                            src={event.awayTeam.logo}
+                            alt="away team logo"
                             width={20}
                             height={20}
                             className={styles.teamLogoMobile}

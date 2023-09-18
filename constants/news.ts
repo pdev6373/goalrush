@@ -10,17 +10,17 @@ const News: NewsType[] = [
   },
   {
     id: "2",
-    image: "/assets/news.png",
-    title: "OFFICIAL: Benzema is the UCL Player of the Season 21/22",
+    image: "/assets/news-two.png",
+    title: "2021/22 UEFA Champions League Team of the Season",
     body: "The Germany centre-back has signed a four-year contract with the European champions as he becomes Carlo Ancelotti's first summer acquisition Real Madrid have completed the signing of Chelsea defender Antonio Rudiger, it has been confirmed.",
-    time: "23 minutes ago",
+    time: "27 minutes ago",
   },
   {
     id: "3",
-    image: "/assets/news.png",
-    title: "OFFICIAL: Benzema is the UCL Player of the Season 21/22",
+    image: "/assets/news-three.png",
+    title: "2021/22 UEFA Champions League Young Player of the Season",
     body: "The Germany centre-back has signed a four-year contract with the European champions as he becomes Carlo Ancelotti's first summer acquisition Real Madrid have completed the signing of Chelsea defender Antonio Rudiger, it has been confirmed.",
-    time: "23 minutes ago",
+    time: "55 minutes ago",
   },
   {
     id: "4",

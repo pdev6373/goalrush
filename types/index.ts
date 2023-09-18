@@ -89,6 +89,7 @@ type LiveScoreDetailsType = {
   tournamentName: string;
   tournamentSlug: string;
   time: MatchTimeType;
+  competitionImage: string;
   // competitionId: string;
   // competitionRoute: string;
   competitionName: string;

@@ -37,7 +37,7 @@ export default function LivescoresProvider({ children }: LayoutType) {
             ({
               name: tournament.details.competitionName,
               slug: tournament.details.competitionSlug,
-              flag: "",
+              flag: tournament.details.competitionImage,
             } as TournamentCategoriesType)
         )
         .filter(

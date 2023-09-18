@@ -33,7 +33,7 @@ export default function Leagues() {
           extraStyles={{ paddingBlock: "0" }}
         >
           <div className={styles.allLeagues}>
-            {competitions.data.map((league: any) => (
+            {competitions.data.map((league) => (
               <Link
                 href={`/livescores/${league.slug}`}
                 className={[
@@ -42,12 +42,20 @@ export default function Leagues() {
                 ].join(" ")}
                 key={league.name}
               >
-                {/* <Image
+                <Image
                   src={league.flag}
                   alt="league image"
                   width={32}
                   height={32}
-                /> */}
+                  className={styles.competitionFlag}
+                />
+                <Image
+                  src={league.flag}
+                  alt="league image"
+                  width={28}
+                  height={28}
+                  className={styles.competitionFlagMobile}
+                />
 
                 <Text sizeStatic={14} type="body" variation="main" weight="700">
                   {league.name}
