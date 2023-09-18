@@ -57,8 +57,7 @@ export const metadata: Metadata = {
     title: "Goalrush: Where Football Livescores Come Alive!",
     description:
       "Stay in the know with Goalrush - Your go-to destination for real-time football livescores, match updates, and all the action from the pitch!",
-    // images: "http://goalrush.vercel.app/assets/news-two.png",
-    images: "http://localhost:3000/og-image.png",
+    images: "http://goal-rush.vercel.app/og-image.png",
     type: "website",
     url: "https://goalrush.vercel.app/",
   },
@@ -66,8 +65,7 @@ export const metadata: Metadata = {
     title: "Goalrush: Where Football Livescores Come Alive!",
     description:
       "Stay in the know with Goalrush - Your go-to destination for real-time football livescores, match updates, and all the action from the pitch!",
-    // images: "https://goalrush.vercel.app/assets/news-two.png",
-    images: "http://localhost:3000/og-image.png",
+    images: "http://goal-rush.vercel.app/og-image.png",
     card: "summary_large_image",
     // site: "@goalrush",
   },
