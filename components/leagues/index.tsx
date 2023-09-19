@@ -11,19 +11,14 @@ export default function Leagues() {
   const { competitions } = useContext(GlobalContext);
   const pathname = usePathname();
 
+  console.log(competitions);
+
   if (!competitions?.data?.length) {
-    if (!competitions?.message)
-      return (
-        <Wrapper center padding={30}>
-          <Image
-            src="/loader-two.gif"
-            alt="loading gif"
-            width={60}
-            height={60}
-          />
-        </Wrapper>
-      );
-    else return <p>No profile data</p>;
+    return (
+      <Wrapper center padding={30}>
+        <Image src="/loader-two.gif" alt="loading gif" width={60} height={60} />
+      </Wrapper>
+    );
   }
 
   const isCurrentRoute = (route: string) =>

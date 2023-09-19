@@ -306,7 +306,7 @@ export default function PlayerCard({ id, type, body }: PlayerCardType) {
         <div className={styles.votesIndicator}>
           <div
             className={styles.positiveVoteIndicatorWrapper}
-            style={{ width: "calc(40% + 3px)" }}
+            // style={{ width: "calc(40% + 3px)" }}
           >
             <Image
               src="/assets/positive-votes.svg"
@@ -318,7 +318,7 @@ export default function PlayerCard({ id, type, body }: PlayerCardType) {
 
           <div
             className={styles.negativeVoteIndicatorWrapper}
-            style={{ width: "calc(60% + 3px)" }}
+            // style={{ width: "calc(60% + 3px)" }}
           >
             <Image
               src="/assets/negative-votes.svg"

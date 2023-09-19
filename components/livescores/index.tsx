@@ -101,6 +101,20 @@ export default function LiveScores({
       </div>
     );
 
+  if (!data.length)
+    return (
+      <div className={styles.noData}>
+        <Wrapper padding={20} gap={20} extraStyles={extraStyles.wrapper}>
+          <Image
+            src="/no-data.gif"
+            alt="no data gif"
+            width={150}
+            height={150}
+          />
+        </Wrapper>
+      </div>
+    );
+
   return (
     <Wrapper padding={20} gap={20}>
       <>

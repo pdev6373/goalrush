@@ -1,9 +1,9 @@
 "use client";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useRef } from "react";
 import { LayoutType, LiveScoresType, TournamentCategoriesType } from "@/types";
 import { GlobalContext } from "./global";
 import { format } from "date-fns";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 const initialLivescores = {
   data: [],
@@ -29,102 +29,95 @@ export default function LivescoresProvider({ children }: LayoutType) {
   const [loadingLivescores, setLoadingLivescores] = useState(true);
   const { push, replace } = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const today = format(new Date(), "yyyy-MM-dd");
+  const calendarValueRef = useRef(calendarValue);
+  const [isTodayCompetitionsSet, setIsTodayCometitionsSet] = useState(false);
+  const isTodayCompetitionsSetRef = useRef(false);
 
-  const formattedCalendarDate = () =>
-    format(new Date(calendarValue), "yyyy-MM-dd");
-  const isToday = () => formattedCalendarDate() === today;
+  const setCompetitionsData = (comeptitions: LiveScoresType) => ({
+    data: comeptitions.data
+      .map(
+        (tournament) =>
+          ({
+            name: tournament.details.competitionName,
+            slug: tournament.details.competitionSlug,
+            flag: tournament.details.competitionImage,
+          } as TournamentCategoriesType)
+      )
+      .filter(
+        (tournament, index, tournaments) =>
+          tournaments.findIndex((item) => item.name === tournament.name) ===
+          index
+      ),
+    message: comeptitions.message,
+    succeeded: comeptitions.succeeded,
+  });
 
   useEffect(() => {
-    setLoadingLivescores(true);
+    isTodayCompetitionsSetRef.current = isTodayCompetitionsSet;
+  }, [isTodayCompetitionsSet]);
+
+  useEffect(() => {
+    calendarValueRef.current = calendarValue;
+
+    const formattedCalendarDate = () =>
+      format(new Date(calendarValueRef.current), "yyyy-MM-dd");
+    const isToday = () => formattedCalendarDate() === today;
 
     const socket = new WebSocket(
       `${process.env.NEXT_PUBLIC_API_ENDPOINT_WS}/livescores`
     );
 
-    socket.onerror = (e) => {
-      if (e.type === "error") {
-        setLoadingLivescores(false);
-      }
-    };
+    const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
 
-    socket.onopen = () => socket.send("");
-    socket.onmessage = (e: any) => {
-      console.log(isToday());
-      console.log(calendarValue);
-
-      isToday() && setLivescores(JSON.parse(e?.data));
-      setLoadingLivescores(false);
-    };
-  }, []);
-
-  useEffect(() => {
     if (isToday()) {
-      replace("/");
-      return;
-    }
+      current.delete("date");
+      const query = "";
+      setIsTodayCometitionsSet(false);
 
-    setLoadingLivescores(true);
-    const queryValue = `?date=${formattedCalendarDate()}`;
-    push(`${pathname}${queryValue}`);
+      push(`${pathname}${query}`);
 
-    (async () => {
-      try {
-        const response: LiveScoresType = await (
-          await fetch(
-            `${process.env.NEXT_PUBLIC_API_ENDPOINT_HTTP}/livescores${queryValue}`
-          )
-        ).json();
+      setLoadingLivescores(true);
 
-        setLivescores(response);
-
-        setCompetitions({
-          data: response.data
-            .map(
-              (tournament) =>
-                ({
-                  name: tournament.details.competitionName,
-                  slug: tournament.details.competitionSlug,
-                  flag: tournament.details.competitionImage,
-                } as TournamentCategoriesType)
-            )
-            .filter(
-              (tournament, index, tournaments) =>
-                tournaments.findIndex(
-                  (item) => item.name === tournament.name
-                ) === index
-            ),
-          message: livescores.message,
-          succeeded: livescores.succeeded,
-        });
-      } catch (e) {
-        console.log(e);
-      } finally {
+      socket.onerror = () => setLoadingLivescores(false);
+      socket.onopen = () => socket.send("Hello");
+      socket.onmessage = (e: any) => {
+        isToday() && setLivescores(JSON.parse(e?.data));
         setLoadingLivescores(false);
-      }
-    })();
-  }, [calendarValue]);
+        !isTodayCompetitionsSetRef.current &&
+          setCompetitions(setCompetitionsData(JSON.parse(e?.data)));
+        setIsTodayCometitionsSet(true);
+      };
+    } else {
+      socket.close();
 
-  !competitions?.data?.length &&
-    livescores?.data?.length &&
-    setCompetitions({
-      data: livescores.data
-        .map(
-          (tournament) =>
-            ({
-              name: tournament.details.competitionName,
-              slug: tournament.details.competitionSlug,
-              flag: tournament.details.competitionImage,
-            } as TournamentCategoriesType)
-        )
-        .filter(
-          (tournament, index, tournaments) =>
-            tournaments.findIndex((item) => item.name === tournament.name) ===
-            index
-        ),
-      message: livescores.message,
-      succeeded: livescores.succeeded,
-    });
+      current.set("date", formattedCalendarDate());
+      const query = `?${current.toString()}`;
+
+      push(`${pathname}${query}`);
+
+      (async () => {
+        try {
+          setLoadingLivescores(true);
+
+          const response: LiveScoresType = await (
+            await fetch(
+              `${process.env.NEXT_PUBLIC_API_ENDPOINT_HTTP}/livescores${query}`
+            )
+          ).json();
+
+          setLivescores(response);
+
+          setCompetitions(setCompetitionsData(response));
+        } catch (e) {
+          console.log(e);
+        } finally {
+          setLoadingLivescores(false);
+        }
+      })();
+    }
+  }, [calendarValue]);
 
   return (
     <LivescoresContext.Provider
