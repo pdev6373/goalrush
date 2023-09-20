@@ -3,3 +3,8 @@
   top: 0;
   z-index: 10;
 }
+
+.mainContent {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+}

@@ -24,10 +24,10 @@ export const LivescoresContext = createContext<LiveScoresContextType>({
 export default function LivescoresProvider({ children }: LayoutType) {
   const [livescores, setLivescores] =
     useState<LiveScoresType>(initialLivescores);
-  const { competitions, setCompetitions, calendarValue } =
+  const { setCompetitions, calendarValue, setLoadingCompetitions } =
     useContext(GlobalContext);
   const [loadingLivescores, setLoadingLivescores] = useState(true);
-  const { push, replace } = useRouter();
+  const { push } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const today = format(new Date(), "yyyy-MM-dd");
@@ -79,14 +79,28 @@ export default function LivescoresProvider({ children }: LayoutType) {
       push(`${pathname}${query}`);
 
       setLoadingLivescores(true);
+      setLoadingCompetitions(true);
+      setLivescores(initialLivescores);
 
-      socket.onerror = () => setLoadingLivescores(false);
       socket.onopen = () => socket.send("Hello");
+      socket.onerror = () => {
+        setLoadingLivescores(false);
+        setLoadingCompetitions(false);
+        setLivescores({
+          data: [],
+          message: "An error occurred",
+          succeeded: false,
+        });
+      };
       socket.onmessage = (e: any) => {
-        isToday() && setLivescores(JSON.parse(e?.data));
+        const response: LiveScoresType = JSON.parse(e?.data);
+        console.log(response);
+
+        isToday() && setLivescores(response);
         setLoadingLivescores(false);
         !isTodayCompetitionsSetRef.current &&
-          setCompetitions(setCompetitionsData(JSON.parse(e?.data)));
+          setCompetitions(setCompetitionsData(response));
+        setLoadingCompetitions(false);
         setIsTodayCometitionsSet(true);
       };
     } else {
@@ -100,6 +114,8 @@ export default function LivescoresProvider({ children }: LayoutType) {
       (async () => {
         try {
           setLoadingLivescores(true);
+          setLoadingCompetitions(true);
+          setLivescores(initialLivescores);
 
           const response: LiveScoresType = await (
             await fetch(
@@ -108,12 +124,17 @@ export default function LivescoresProvider({ children }: LayoutType) {
           ).json();
 
           setLivescores(response);
-
           setCompetitions(setCompetitionsData(response));
         } catch (e) {
-          console.log(e);
+          console.error(e);
+          setLivescores({
+            data: [],
+            message: "An error occurred",
+            succeeded: false,
+          });
         } finally {
           setLoadingLivescores(false);
+          setLoadingCompetitions(false);
         }
       })();
     }

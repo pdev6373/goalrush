@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import { HomeTypes, LayoutType } from "@/types";
 import { GlobalContext } from "@/context/global";
 import styles from "./layout.module.css";
+import format from "date-fns/format";
 
 export default function Transfersayout({ children }: LayoutType) {
   const pathname = usePathname();
@@ -23,14 +24,20 @@ export default function Transfersayout({ children }: LayoutType) {
     currentTournamentHandler()
   );
 
+  const formattedDate = format(new Date(calendarValue), "MMM, dd");
+
   useEffect(() => {
     closeDropDown();
     setCurrentTournament(currentTournamentHandler());
   }, [pathname, competitions.data]);
 
-  const dropdownHandler = (current: HomeTypes) =>
-    competitions?.data?.length &&
-    setCurrentDropDownToShow((prev) => (prev === current ? null : current));
+  const dropdownHandler = (current: HomeTypes) => {
+    if (current === "calendar")
+      setCurrentDropDownToShow((prev) => (prev === current ? null : current));
+    else
+      competitions?.data?.length &&
+        setCurrentDropDownToShow((prev) => (prev === current ? null : current));
+  };
 
   function closeDropDown() {
     setCurrentDropDownToShow(null);
@@ -74,7 +81,7 @@ export default function Transfersayout({ children }: LayoutType) {
               className={styles.dropDownButton}
               onClick={() => dropdownHandler("calendar")}
             >
-              <DropDownButton currentValue="May, 29" />
+              <DropDownButton currentValue={formattedDate} />
             </div>
 
             <div

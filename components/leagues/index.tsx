@@ -8,12 +8,10 @@ import { GlobalContext } from "@/context/global";
 import { usePathname } from "next/navigation";
 
 export default function Leagues() {
-  const { competitions } = useContext(GlobalContext);
+  const { competitions, loadingCompetitions } = useContext(GlobalContext);
   const pathname = usePathname();
 
-  console.log(competitions);
-
-  if (!competitions?.data?.length) {
+  if (loadingCompetitions || !competitions?.data?.length) {
     return (
       <Wrapper center padding={30}>
         <Image src="/loader-two.gif" alt="loading gif" width={60} height={60} />
@@ -47,20 +45,24 @@ export default function Leagues() {
                 ].join(" ")}
                 key={league.name}
               >
-                <Image
-                  src={league.flag}
-                  alt="league image"
-                  width={32}
-                  height={32}
-                  className={styles.competitionFlag}
-                />
-                <Image
-                  src={league.flag}
-                  alt="league image"
-                  width={28}
-                  height={28}
-                  className={styles.competitionFlagMobile}
-                />
+                {league.flag?.length && (
+                  <>
+                    <Image
+                      src={league.flag}
+                      alt="league image"
+                      width={32}
+                      height={32}
+                      className={styles.competitionFlag}
+                    />
+                    <Image
+                      src={league.flag}
+                      alt="league image"
+                      width={28}
+                      height={28}
+                      className={styles.competitionFlagMobile}
+                    />
+                  </>
+                )}
 
                 <Text sizeStatic={14} type="body" variation="main" weight="700">
                   {league.name}

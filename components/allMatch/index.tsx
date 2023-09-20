@@ -3,14 +3,18 @@ import { useState, useContext } from "react";
 import { LivescoresContext } from "@/context/livescores";
 import { Calendar, LiveScores, DropDownButton } from "@/components";
 import styles from "./index.module.css";
+import { GlobalContext } from "@/context/global";
+import format from "date-fns/format";
 
 export default function AllMatch() {
-  const [calendarValue, setCalendarValue] = useState<Date>(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
   const {
     livescores: { data, message, succeeded },
     loadingLivescores,
   } = useContext(LivescoresContext);
+  const { calendarValue, setCalendarValue } = useContext(GlobalContext);
+
+  const formattedDate = format(new Date(calendarValue), "MMM, dd");
 
   const dropdownHandler = () => setShowCalendar((prev) => !prev);
   const calendarCloseHandler = () => setShowCalendar(false);
@@ -29,7 +33,7 @@ export default function AllMatch() {
         <main className={styles.liveScores}>
           <div className={styles.dropDownWapper}>
             <div onClick={dropdownHandler}>
-              <DropDownButton currentValue="May, 29" />
+              <DropDownButton currentValue={formattedDate} />
             </div>
 
             <div
@@ -38,7 +42,7 @@ export default function AllMatch() {
                 showCalendar && styles.calendarDropDown,
               ].join(" ")}
             >
-              <Calendar setValue={setCalendarValue} />
+              <Calendar onChange={setCalendarValue} value={calendarValue} />
             </div>
           </div>
 
@@ -52,7 +56,7 @@ export default function AllMatch() {
         </main>
 
         <div className={styles.calendar}>
-          <Calendar setValue={setCalendarValue} />
+          <Calendar onChange={setCalendarValue} value={calendarValue} />
         </div>
       </div>
     </div>

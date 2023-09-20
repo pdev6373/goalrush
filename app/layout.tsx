@@ -81,9 +81,11 @@ export default function RootLayout({ children }: LayoutType) {
           <Header />
         </div>
 
-        <GlobalProvider>
-          <LivescoresProvider>{children}</LivescoresProvider>
-        </GlobalProvider>
+        <div className={styles.mainContent}>
+          <GlobalProvider>
+            <LivescoresProvider>{children}</LivescoresProvider>
+          </GlobalProvider>
+        </div>
       </body>
     </html>
   );

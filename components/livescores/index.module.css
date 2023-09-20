@@ -85,18 +85,31 @@
   flex: 1;
 }
 
-.teamLogoWeb {
-  display: none;
-}
-
-.teamLogoMobile,
-.teamLogoWeb {
-  order: -1;
-}
-
 .error500Large,
 .error500Medium {
   display: none;
+}
+
+.teamLogo {
+  position: relative;
+  width: 20px;
+  aspect-ratio: 1 / 1;
+}
+
+.teamLogo > * {
+  object-fit: cover;
+  object-position: center;
+  height: unset !important;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.homeTeamLogo {
+  order: -1;
+}
+
+.noLogo {
+  width: 20px;
 }
 
 @media (min-width: 330px) {
@@ -165,12 +178,13 @@
     gap: 10px;
   }
 
-  .teamLogoWeb {
-    display: block;
+  .noLogo,
+  .teamLogo {
+    width: 24px;
   }
 
-  .teamLogoMobile {
-    display: none;
+  .homeTeamLogo {
+    order: 0;
   }
 
   .error500Small,
@@ -190,6 +204,10 @@
 }
 
 @media (min-width: 1400px) {
+  .noLogo {
+    display: none;
+  }
+
   .matchTeams {
     flex-direction: row;
     align-items: center;
@@ -205,10 +223,6 @@
 
   .matchScores {
     display: block;
-  }
-
-  .teamLogoWeb {
-    order: 0;
   }
 
   .matchTime {

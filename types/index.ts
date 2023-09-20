@@ -1,33 +1,40 @@
 import { ReactNode, CSSProperties } from "react";
 
-type MatchTimeType = {
-  initial: number;
-  max: number;
-  extra: number;
-  currentPeriodStartTimestamp: number;
-};
+// type MatchTimeType = {
+//   initial: number;
+//   max: number;
+//   extra: number;
+//   currentPeriodStartTimestamp: number;
+// };
 
-export type MatchStatusTypeType =
-  | "inprogress"
-  | "notstarted"
-  | "postponed"
-  | "finished"
-  | "canceled";
+// export type MatchStatusTypeType =
+//   | "inprogress"
+//   | "notstarted"
+//   | "postponed"
+//   | "finished"
+//   | "canceled";
 
-export type MatchStatusDescriptionType =
-  | "1st half"
-  | "2nd half"
-  | "Halftime"
-  | "Not started"
+// export type MatchStatusDescriptionType =
+//   | "1st half"
+//   | "2nd half"
+//   | "Halftime"
+//   | "Not started"
+//   | "Postponed"
+//   | "Ended"
+//   | "Canceled";
+
+// type MatchStatusType = {
+//   code: number;
+//   description: MatchStatusDescriptionType;
+//   type: MatchStatusTypeType;
+// };
+
+export type MatchStatusType =
+  | "Finished"
   | "Postponed"
-  | "Ended"
-  | "Canceled";
-
-type MatchStatusType = {
-  code: number;
-  description: MatchStatusDescriptionType;
-  type: MatchStatusTypeType;
-};
+  | "Cancelled"
+  | "Half Time"
+  | string;
 
 export type LayoutType = {
   children: ReactNode;
@@ -88,7 +95,7 @@ type LiveScoreDetailsType = {
   // tournamentRoute: string;
   tournamentName: string;
   tournamentSlug: string;
-  time: MatchTimeType;
+  time: string;
   competitionImage: string;
   // competitionId: string;
   // competitionRoute: string;
@@ -104,7 +111,6 @@ type LiveScoreDetailsType = {
 // };
 
 type LiveScoreTeamDetailsType = {
-  // score: number;
   id: string;
   route: string;
   name: string;
@@ -112,7 +118,6 @@ type LiveScoreTeamDetailsType = {
   colors: object;
   code: string;
   logo: string;
-  score: string | undefined;
 };
 
 // type LiveScoreEventType = {
@@ -136,17 +141,18 @@ type LiveScoreEventType = {
 
   id: string;
   route: string;
-  time: MatchTimeType;
-  startTime: number;
+  time: MatchStatusType;
+  startTime: string;
   changeTime: number;
-  status: MatchStatusType;
   homeTeam: LiveScoreTeamDetailsType;
   awayTeam: LiveScoreTeamDetailsType;
+  score: string;
 };
 
 export type AllLiveScoresType = {
   details: LiveScoreDetailsType;
-  events: LiveScoreEventType[];
+  // events: LiveScoreEventType[];
+  event: LiveScoreEventType;
 };
 
 export type LiveScoresType = {
@@ -251,10 +257,8 @@ export type FetchType = {
   payload?: object;
 };
 
-type ValuePiece = Date | null;
-type Value = ValuePiece | [ValuePiece, ValuePiece];
 export type CalendarType = {
-  value: Value;
+  value: Date;
   onChange: any;
 };
 

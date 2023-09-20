@@ -11,6 +11,8 @@ type CompetitionType = {
 type GLobalContextType = {
   competitions: CompetitionType;
   setCompetitions: Dispatch<SetStateAction<CompetitionType>>;
+  loadingCompetitions: boolean;
+  setLoadingCompetitions: Dispatch<SetStateAction<boolean>>;
   calendarValue: Date;
   setCalendarValue: Dispatch<SetStateAction<Date>>;
 };
@@ -24,6 +26,8 @@ const initialCompetitions = {
 export const GlobalContext = createContext<GLobalContextType>({
   competitions: initialCompetitions,
   setCompetitions: () => initialCompetitions,
+  loadingCompetitions: true,
+  setLoadingCompetitions: () => true,
   calendarValue: new Date(),
   setCalendarValue: () => new Date(),
 });
@@ -31,6 +35,7 @@ export const GlobalContext = createContext<GLobalContextType>({
 export default function GlobalProvider({ children }: LayoutType) {
   const [competitions, setCompetitions] =
     useState<CompetitionType>(initialCompetitions);
+  const [loadingCompetitions, setLoadingCompetitions] = useState(true);
   const [calendarValue, setCalendarValue] = useState<Date>(new Date());
 
   return (
@@ -40,6 +45,8 @@ export default function GlobalProvider({ children }: LayoutType) {
         setCompetitions,
         calendarValue,
         setCalendarValue,
+        loadingCompetitions,
+        setLoadingCompetitions,
       }}
     >
       {children}
