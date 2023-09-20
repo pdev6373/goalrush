@@ -81,7 +81,7 @@ export default function LivescoresProvider({ children }: LayoutType) {
       setLoadingCompetitions(true);
       setLivescores(initialLivescores);
 
-      socket.onopen = () => socket.send("Hello");
+      socket.onopen = () => socket.send("");
       socket.onerror = () => {
         setLoadingLivescores(false);
         setLoadingCompetitions(false);
