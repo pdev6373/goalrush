@@ -8,6 +8,7 @@ export default function Text({
   sizeStatic,
   weight,
   variation,
+  extraStyles,
 }: TextType) {
   const textStyles = [
     size === 12 && styles.size12,
@@ -40,8 +41,12 @@ export default function Text({
   ].join(" ");
 
   return type === "heading" ? (
-    <h2 className={textStyles}>{children}</h2>
+    <h2 className={textStyles} style={extraStyles}>
+      {children}
+    </h2>
   ) : (
-    <p className={textStyles}>{children}</p>
+    <p className={textStyles} style={extraStyles}>
+      {children}
+    </p>
   );
 }

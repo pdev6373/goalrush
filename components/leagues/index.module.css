@@ -54,7 +54,20 @@
 }
 
 .competitionFlag {
-  display: none;
+  position: relative;
+  width: 28px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.competitionFlag > * {
+  width: 100%;
+  height: unset !important;
+  margin-block: auto;
+  object-fit: cover;
+  object-position: center center;
 }
 
 @media (min-width: 500px) {
@@ -76,11 +89,7 @@
   }
 
   .competitionFlag {
-    display: block;
-  }
-
-  .competitionFlagMobile {
-    display: none;
+    width: 32px;
   }
 }
 

@@ -46,25 +46,18 @@ export default function Leagues() {
                 key={league.name}
               >
                 {league.flag?.length && (
-                  <>
-                    <Image
-                      src={league.flag}
-                      alt="league image"
-                      width={32}
-                      height={32}
-                      className={styles.competitionFlag}
-                    />
-                    <Image
-                      src={league.flag}
-                      alt="league image"
-                      width={28}
-                      height={28}
-                      className={styles.competitionFlagMobile}
-                    />
-                  </>
+                  <div className={styles.competitionFlag}>
+                    <Image src={league.flag} alt="league image" fill />
+                  </div>
                 )}
 
-                <Text sizeStatic={14} type="body" variation="main" weight="700">
+                <Text
+                  sizeStatic={14}
+                  type="body"
+                  variation="main"
+                  weight="700"
+                  extraStyles={{ textTransform: "capitalize" }}
+                >
                   {league.name}
                 </Text>
 

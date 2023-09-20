@@ -152,7 +152,7 @@ type LiveScoreEventType = {
 export type AllLiveScoresType = {
   details: LiveScoreDetailsType;
   // events: LiveScoreEventType[];
-  event: LiveScoreEventType;
+  events: LiveScoreEventType[];
 };
 
 export type LiveScoresType = {
@@ -216,6 +216,7 @@ export type TextType = {
     | "alert-200"
     | "yellow"
     | "active";
+  extraStyles?: CSSProperties | undefined;
 };
 
 type TeansferBodyClubType = {

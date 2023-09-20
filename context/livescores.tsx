@@ -72,7 +72,6 @@ export default function LivescoresProvider({ children }: LayoutType) {
     const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
 
     if (isToday()) {
-      current.delete("date");
       const query = "";
       setIsTodayCometitionsSet(false);
 
@@ -93,8 +92,12 @@ export default function LivescoresProvider({ children }: LayoutType) {
         });
       };
       socket.onmessage = (e: any) => {
+        if (!isToday()) {
+          socket.close();
+          return;
+        }
+
         const response: LiveScoresType = JSON.parse(e?.data);
-        console.log(response);
 
         isToday() && setLivescores(response);
         setLoadingLivescores(false);
@@ -106,6 +109,7 @@ export default function LivescoresProvider({ children }: LayoutType) {
     } else {
       socket.close();
 
+      current.delete("date");
       current.set("date", formattedCalendarDate());
       const query = `?${current.toString()}`;
 

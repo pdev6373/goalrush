@@ -108,6 +108,7 @@ export default function LiveScores({
                       type="body"
                       variation="main-300"
                       weight="700"
+                      extraStyles={{ textTransform: "capitalize" }}
                     >
                       {livescore.details.competitionName}
                     </Text>
@@ -121,61 +122,61 @@ export default function LiveScores({
                 </div>
               </div>
 
-              <div className={styles.matchDetails}>
-                {isLive(livescore.event.time) ? (
-                  <>
-                    <div className={styles.matchTimeMobile}>
-                      <Text
-                        size={14}
-                        type="body"
-                        variation="secondary"
-                        weight="600"
-                      >
-                        {livescore.event.time === "Half Time"
-                          ? "HT"
-                          : livescore.event.time === "Finished"
-                          ? "FT"
-                          : livescore.event.time.includes("+")
-                          ? livescore.event.time
-                          : `${livescore.event.time}'`}
-                      </Text>
-                    </div>
+              {livescore.events.map((tournament, index) => (
+                <div className={styles.matchDetails} key={index}>
+                  {isLive(tournament.time) ? (
+                    <>
+                      <div className={styles.matchTimeMobile}>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="secondary"
+                          weight="600"
+                        >
+                          {tournament.time === "Half Time"
+                            ? "HT"
+                            : tournament.time === "Finished"
+                            ? "FT"
+                            : `${tournament.time}'`}
+                        </Text>
+                      </div>
 
-                    <div className={styles.live}>
-                      <Text
-                        size={14}
-                        type="body"
-                        variation="alert"
-                        weight="600"
-                      >
-                        {matchStatusText(
-                          livescore.event.time,
-                          livescore.event.startTime
-                        )}
-                      </Text>
-                    </div>
-                  </>
-                ) : (
-                  <div className={styles.notLive}>
-                    <Text size={14} type="body" variation="main" weight="600">
-                      {matchStatusText(
-                        livescore.event.time,
-                        livescore.event.startTime
-                      )}
-                    </Text>
-                  </div>
-                )}
-
-                <div className={styles.matchTeams}>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamName}>
+                      <div className={styles.live}>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="alert"
+                          weight="600"
+                        >
+                          {matchStatusText(
+                            tournament.time,
+                            tournament.startTime
+                          )}
+                        </Text>
+                      </div>
+                    </>
+                  ) : (
+                    <div className={styles.notLive}>
                       <Text size={14} type="body" variation="main" weight="600">
-                        {livescore.event.homeTeam.shortName}
+                        {matchStatusText(tournament.time, tournament.startTime)}
                       </Text>
                     </div>
+                  )}
 
-                    {livescore.event.homeTeam.logo?.length ? (
-                      <>
+                  <div className={styles.matchTeams}>
+                    <div className={styles.teamWrapper}>
+                      <div className={styles.teamName}>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="main"
+                          weight="600"
+                        >
+                          {tournament.homeTeam.shortName}
+                        </Text>
+                      </div>
+
+                      {tournament.homeTeam.logo?.length ? (
                         <div
                           className={[
                             styles.teamLogo,
@@ -183,90 +184,95 @@ export default function LiveScores({
                           ].join(" ")}
                         >
                           <Image
-                            src={livescore.event.homeTeam.logo}
+                            src={tournament.homeTeam.logo}
                             alt="home team logo"
                             fill
                           />
                         </div>
-                      </>
-                    ) : (
-                      <div className={styles.noLogo}></div>
-                    )}
+                      ) : (
+                        <div className={styles.noLogo}></div>
+                      )}
 
-                    <p className={styles.matchScoresMobile}>
-                      {isLive(livescore.event.time)
-                        ? teamScore("home", livescore.event.score)
-                        : ""}
+                      <p className={styles.matchScoresMobile}>
+                        {isLive(tournament.time) ||
+                        tournament.time === "Finished"
+                          ? teamScore("home", tournament.score)
+                          : ""}
+                      </p>
+                    </div>
+
+                    <p className={styles.matchScores}>
+                      {`${
+                        isLive(tournament.time) ||
+                        tournament.time === "Finished"
+                          ? teamScore("home", tournament.score)
+                          : "-"
+                      } : ${
+                        isLive(tournament.time) ||
+                        tournament.time === "Finished"
+                          ? teamScore("away", tournament.score)
+                          : "-"
+                      }`}
                     </p>
-                  </div>
 
-                  <p className={styles.matchScores}>
-                    {`${
-                      isLive(livescore.event.time)
-                        ? teamScore("home", livescore.event.score)
-                        : "-"
-                    } : ${
-                      isLive(livescore.event.time)
-                        ? teamScore("away", livescore.event.score)
-                        : "-"
-                    }`}
-                  </p>
-
-                  <div className={styles.teamWrapper}>
-                    {livescore.event.awayTeam.logo?.length ? (
-                      <>
+                    <div className={styles.teamWrapper}>
+                      {tournament.awayTeam.logo?.length ? (
                         <div className={styles.teamLogo}>
                           <Image
-                            src={livescore.event.awayTeam.logo}
+                            src={tournament.awayTeam.logo}
                             alt="away team logo"
                             fill
                           />
                         </div>
-                      </>
-                    ) : (
-                      <div className={styles.noLogo}></div>
-                    )}
+                      ) : (
+                        <div className={styles.noLogo}></div>
+                      )}
 
-                    <div>
-                      <Text size={14} type="body" variation="main" weight="600">
-                        {livescore.event.awayTeam.shortName}
-                      </Text>
+                      <div>
+                        <Text
+                          size={14}
+                          type="body"
+                          variation="main"
+                          weight="600"
+                        >
+                          {tournament.awayTeam.shortName}
+                        </Text>
+                      </div>
+
+                      <p className={styles.matchScoresMobile}>
+                        {isLive(tournament.time) ||
+                        tournament.time === "Finished"
+                          ? teamScore("away", tournament.score)
+                          : ""}
+                      </p>
                     </div>
+                  </div>
 
-                    <p className={styles.matchScoresMobile}>
-                      {isLive(livescore.event.time)
-                        ? teamScore("away", livescore.event.score)
-                        : ""}
-                    </p>
+                  <div
+                    className={[
+                      styles.matchTime,
+                      !isLive(tournament.time) && styles.noMatchTime,
+                    ].join(" ")}
+                  >
+                    {isLive(tournament.time) ? (
+                      <Text
+                        size={14}
+                        type="body"
+                        variation="secondary"
+                        weight="600"
+                      >
+                        {tournament.time === "Half Time"
+                          ? "HT"
+                          : tournament.time === "Finished"
+                          ? "FT"
+                          : `${tournament.time}'`}
+                      </Text>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
-
-                <div
-                  className={[
-                    styles.matchTime,
-                    !isLive(livescore.event.time) && styles.noMatchTime,
-                  ].join(" ")}
-                >
-                  {isLive(livescore.event.time) ? (
-                    <Text
-                      size={14}
-                      type="body"
-                      variation="secondary"
-                      weight="600"
-                    >
-                      {livescore.event.time === "Half Time"
-                        ? "HT"
-                        : livescore.event.time === "Finished"
-                        ? "FT"
-                        : livescore.event.time.includes("+")
-                        ? livescore.event.time
-                        : `${livescore.event.time}'`}
-                    </Text>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
+              ))}
             </>
           </Wrapper>
         ))}
