@@ -143,6 +143,8 @@ export default function LiveScores({
                             ? "HT"
                             : tournament.time === "Finished"
                             ? "FT"
+                            : tournament.time.includes("+")
+                            ? tournament.time
                             : `${tournament.time}'`}
                         </Text>
                       </div>
@@ -279,6 +281,8 @@ export default function LiveScores({
                           ? "HT"
                           : tournament.time === "Finished"
                           ? "FT"
+                          : tournament.time.includes("+")
+                          ? tournament.time
                           : `${tournament.time}'`}
                       </Text>
                     ) : (
