@@ -113,10 +113,6 @@
   order: -1;
 }
 
-.noLogo {
-  width: 20px;
-}
-
 @media (min-width: 330px) {
   .noData {
     height: calc(100vh - 223px);
@@ -183,7 +179,6 @@
     gap: 10px;
   }
 
-  .noLogo,
   .teamLogo {
     width: 24px;
   }
@@ -198,13 +193,11 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
   .noData {
     height: calc(100vh - 131px);
   }
-}
 
-@media (min-width: 1400px) {
   .noLogo {
     display: none;
   }

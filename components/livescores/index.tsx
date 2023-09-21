@@ -80,6 +80,9 @@ export default function LiveScores({
     time !== "Cancelled" &&
     time !== "Finished" &&
     time !== "Postponed" &&
+    time !== "After Pen." &&
+    time !== "Susp." &&
+    time !== "After ET" &&
     time?.length;
 
   const matchStatusText = (time: MatchStatusType, starttime: string) => {
@@ -87,6 +90,9 @@ export default function LiveScores({
     if (time === "Finished") return "FT";
     if (time === "Postponed") return "Postp.";
     if (time === "Cancelled") return "Canc.";
+    if (time === "After Pen.") return "AP";
+    if (time === "Susp.") return "Susp.";
+    if (time === "After ET") return "AET";
 
     return starttime;
   };
@@ -176,7 +182,7 @@ export default function LiveScores({
                         </Text>
                       </div>
 
-                      {tournament.homeTeam.logo?.length ? (
+                      {tournament.homeTeam.logo?.length && (
                         <div
                           className={[
                             styles.teamLogo,
@@ -189,13 +195,14 @@ export default function LiveScores({
                             fill
                           />
                         </div>
-                      ) : (
-                        <div className={styles.noLogo}></div>
                       )}
 
                       <p className={styles.matchScoresMobile}>
                         {isLive(tournament.time) ||
-                        tournament.time === "Finished"
+                        tournament.time === "Finished" ||
+                        tournament.time === "After Pen." ||
+                        tournament.time === "Susp." ||
+                        tournament.time === "After ET"
                           ? teamScore("home", tournament.score)
                           : ""}
                       </p>
@@ -204,19 +211,25 @@ export default function LiveScores({
                     <p className={styles.matchScores}>
                       {`${
                         isLive(tournament.time) ||
-                        tournament.time === "Finished"
+                        tournament.time === "Finished" ||
+                        tournament.time === "After Pen." ||
+                        tournament.time === "Susp." ||
+                        tournament.time === "After ET"
                           ? teamScore("home", tournament.score)
                           : "-"
                       } : ${
                         isLive(tournament.time) ||
-                        tournament.time === "Finished"
+                        tournament.time === "Finished" ||
+                        tournament.time === "After Pen." ||
+                        tournament.time === "Susp." ||
+                        tournament.time === "After ET"
                           ? teamScore("away", tournament.score)
                           : "-"
                       }`}
                     </p>
 
                     <div className={styles.teamWrapper}>
-                      {tournament.awayTeam.logo?.length ? (
+                      {tournament.awayTeam.logo?.length && (
                         <div className={styles.teamLogo}>
                           <Image
                             src={tournament.awayTeam.logo}
@@ -224,8 +237,6 @@ export default function LiveScores({
                             fill
                           />
                         </div>
-                      ) : (
-                        <div className={styles.noLogo}></div>
                       )}
 
                       <div>
@@ -241,7 +252,10 @@ export default function LiveScores({
 
                       <p className={styles.matchScoresMobile}>
                         {isLive(tournament.time) ||
-                        tournament.time === "Finished"
+                        tournament.time === "Finished" ||
+                        tournament.time === "After Pen." ||
+                        tournament.time === "Susp." ||
+                        tournament.time === "After ET"
                           ? teamScore("away", tournament.score)
                           : ""}
                       </p>
