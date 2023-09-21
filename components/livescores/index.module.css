@@ -193,11 +193,13 @@
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
   .noData {
     height: calc(100vh - 131px);
   }
+}
 
+@media (min-width: 1400px) {
   .noLogo {
     display: none;
   }

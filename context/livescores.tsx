@@ -81,7 +81,8 @@ export default function LivescoresProvider({ children }: LayoutType) {
       setLoadingCompetitions(true);
       setLivescores(initialLivescores);
 
-      socket.onopen = () => socket.send("");
+      socket.onopen = () =>
+        socket.send(JSON.stringify(format(new Date(), "yyyy-MM-dd")));
       socket.onerror = () => {
         setLoadingLivescores(false);
         setLoadingCompetitions(false);
