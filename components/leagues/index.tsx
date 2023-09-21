@@ -8,8 +8,8 @@ import { GlobalContext } from "@/context/global";
 import { usePathname } from "next/navigation";
 
 export default function Leagues() {
-  const { competitions, loadingCompetitions } = useContext(GlobalContext);
   const pathname = usePathname();
+  const { competitions, loadingCompetitions } = useContext(GlobalContext);
 
   if (loadingCompetitions || !competitions?.data?.length) {
     return (
