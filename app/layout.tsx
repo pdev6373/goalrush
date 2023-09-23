@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+
 import type { Metadata } from "next";
 import { Header } from "@/components";
 import { LayoutType } from "@/types";
@@ -85,6 +87,7 @@ export default function RootLayout({ children }: LayoutType) {
           <GlobalProvider>
             <LivescoresProvider>{children}</LivescoresProvider>
           </GlobalProvider>
+          <Analytics />
         </div>
       </body>
     </html>
