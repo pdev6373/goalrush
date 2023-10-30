@@ -42,6 +42,7 @@ export default function LiveScores({
               height={187.5}
               className={styles.error500Medium}
             />
+
             <Image
               src="/500.gif"
               alt="loading gif"
