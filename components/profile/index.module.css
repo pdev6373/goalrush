@@ -1,3 +1,7 @@
+.wrapper {
+  opacity: 0;
+}
+
 .profileImageDesktopWrapper {
   display: none;
 }

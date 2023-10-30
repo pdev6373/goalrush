@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 
 export default function Profile() {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.profileImageDesktopWrapper}>
         <Image src="/assets/user.png" alt="user" width={40} height={40} />
       </div>

@@ -5,7 +5,6 @@
 @media (min-width: 900px) {
   .wrapper {
     display: flex;
-    margin-inline: auto;
   }
 
   .navList {
