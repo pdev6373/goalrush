@@ -20,7 +20,7 @@ export default function Header() {
       </div>
 
       <Nav />
-      <Profile />
+      {/* <Profile /> */}
     </header>
   );
 }
