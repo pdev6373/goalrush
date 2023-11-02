@@ -82,7 +82,6 @@ export default function RootLayout({ children }: LayoutType) {
         <div className={styles.header}>
           <Header />
         </div>
-
         <div className={styles.mainContent}>
           <GlobalProvider>
             <LivescoresProvider>{children}</LivescoresProvider>
