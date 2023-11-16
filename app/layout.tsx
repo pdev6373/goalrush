@@ -1,5 +1,5 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components";
 import { LayoutType } from "@/types";
 import LivescoresProvider from "@/context/livescores";
