@@ -1,10 +1,10 @@
 "use client";
 import { LayoutType } from "@/types";
-import styles from "./layout.module.css";
-import Link from "next/link";
 import { Text, Wrapper } from "@/components";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./layout.module.css";
 
 export default function LivescoreLayout({ children }: LayoutType) {
   const pathname = usePathname();
