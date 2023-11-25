@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { Transfers as AllTransfers } from "@/constants";
 import { PlayerCard } from "@/components";
+import { Transfers as AllTransfers } from "@/constants";
 import styles from "./page.module.css";
 
 export default function Transfers() {
